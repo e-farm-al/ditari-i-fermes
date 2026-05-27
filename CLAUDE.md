@@ -9,105 +9,166 @@
 **Farm Diary** (`farmdiary.al`) is a PWA (Progressive Web App) for Albanian farmers to digitally log and manage farm activities — replacing paper notebooks. Built in Albanian. Works offline. Free at MVP scale.
 
 - **Owner:** Kevin (kevinzogu@gmail.com)
-- **Stack:** Next.js 14 + TypeScript, Neon PostgreSQL, Drizzle ORM, Clerk (auth), IndexedDB/Dexie.js (offline), Web Push API, Cloudinary (photos), Vercel (hosting)
-- **Status:** Planning / Design phase
-- **Current phase:** Database schema designed. Drizzle ORM implementation not yet written.
+- **Stack:** Next.js 14 + TypeScript, Neon PostgreSQL, Drizzle ORM, **custom JWT auth** (bcryptjs + jose), IndexedDB/Dexie.js (offline), Web Push API, Cloudinary (photos), Vercel (hosting), Lucide React icons, next-intl (i18n)
+- **Status:** 🟢 Active development
+- **Current phase:** Auth + dashboard done. Building beekeeper module next.
+- **UI Skill:** `ui-ux-pro-max` installed at `.claude/skills/ui-ux-pro-max/` — style: **Organic Biophilic + Flat Design**, palette: Earth Green, Lucide SVG icons (no emojis as icons)
 
 ---
 
-## Key Files in This Folder
+## Key Files
 
 | File | Purpose |
 |---|---|
 | `CLAUDE.md` | This file — auto-read every session |
-| `FARM_DIARY_PROJECT.md` | Full living design document — read this for deep context |
-
-> **Always read `FARM_DIARY_PROJECT.md` before doing any significant work.** It contains the full database schema, architecture decisions, roadmap, and session notes.
-
----
-
-## Current State (updated each session)
-
-**Last session:** May 27, 2026  
-**Completed so far:**
-- ✅ Full project analysis (from FarmDiary_Documentation.docx)
-- ✅ Database schema designed — 19 tables across 6 layers (see FARM_DIARY_PROJECT.md § 6)
-- ✅ Drizzle ORM schema written — `db/schema.ts` (all 19 tables + enums + relations + type exports)
-- ✅ Drizzle config written — `db/drizzle.config.ts`
-- ✅ DB client written — `db/index.ts` (shared `db` instance for the whole app)
-- ✅ API layer fully built — all route files, middleware, types, cron job, sync endpoint
-
-**API files written:**
-- `lib/api/types.ts` — ApiResponse envelope, error codes, role constants
-- `lib/api/middleware.ts` — withAuth, withFarmAccess (role-based), parsePagination, ok/err helpers
-- `app/api/user/route.ts` — GET/PUT own profile
-- `app/api/farms/route.ts` — list farms, create farm
-- `app/api/farms/[farmId]/route.ts` — get/update/delete farm
-- `app/api/farms/[farmId]/members/` — list, invite, change role, remove members
-- `app/api/farms/[farmId]/sections/` — list, create sections
-- `app/api/farms/[farmId]/livestock/` — CRUD animals + health + production sub-routes
-- `app/api/farms/[farmId]/hives/` — CRUD hives + inspections + harvests sub-routes
-- `app/api/farms/[farmId]/poultry/` — CRUD flocks + daily records (upsert per day)
-- `app/api/farms/[farmId]/crops/` — plots → seasons → activities + harvests (nested)
-- `app/api/farms/[farmId]/diary/` — list (filterable) + CRUD entries with author/manager edit guard
-- `app/api/farms/[farmId]/reminders/` — CRUD with status filter
-- `app/api/push/subscribe/` — save/remove push subscription
-- `app/api/cron/send-reminders/` — daily cron: find due reminders, send Web Push, advance repeating
-- `app/api/sync/` — batch offline sync endpoint (up to 200 mutations per request)
-- `vercel.json` — cron schedule at 06:00 AM daily
-
-**Not yet built:**
-- Next.js project setup (package.json, tsconfig, env vars)
-- Offline sync client (IndexedDB + Dexie.js + sync queue)
-- Any frontend/UI code
-
-**Next logical steps (pick up here):**
-1. Build the offline sync client — `lib/offline/` (Dexie schema, write queue, background sync)
-2. OR: Set up the Next.js project skeleton (package.json, tsconfig, env vars list)
-3. OR: Start frontend — dashboard, diary entry form, animal list screens
+| `FARM_DIARY_PROJECT.md` | Full living design document — deep context |
+| `db/schema.ts` | Single source of truth for all 19 DB tables |
+| `lib/auth/session.ts` | JWT create/get/delete (jose, `fd_session` cookie) |
+| `middleware.ts` | Edge JWT guard — protects all non-public routes |
+| `.env.local` | DATABASE_URL, AUTH_SECRET, VAPID keys, etc. |
+| `design-system/ditari-i-fermes/MASTER.md` | Generated design system from ui-ux-pro-max skill |
 
 ---
 
-## Database Schema Summary (19 tables)
+## Current State
+
+**Last session:** May 27, 2026
+
+### ✅ Completed
+
+**Infrastructure**
+- Next.js 14 project fully set up (package.json, tsconfig, tailwind, next-intl, PWA manifest)
+- Neon PostgreSQL connected via Drizzle ORM — all 19 tables pushed and live
+- `drizzle.config.ts` at root with dotenv loading `.env.local`
+- `next.config.mjs` (not `.ts` — Next.js 14 doesn't support `.ts` config)
+- Albanian translations in `messages/sq.json`
+- `lucide-react` installed, `ui-ux-pro-max` skill installed
+
+**Database (Neon — fully synced)**
+- All 19 original tables live
+- `users.username` — added via `scripts/migrate-v3.mjs`
+- `users.password_hash` — added via `scripts/migrate-auth.mjs`
+- `farms.farm_type` — added via `scripts/migrate-v2.mjs` (uses existing `farm_section_type` enum)
+- Migration scripts live in `scripts/` — use Node ESM (`*.mjs`) with `@neondatabase/serverless` + dotenv
+
+**Authentication (100% custom — NO Clerk)**
+- `lib/auth/session.ts` — JWT sign/verify/delete with jose, 30-day cookie `fd_session`
+- `middleware.ts` — Edge-compatible JWT guard
+- `app/api/auth/login/route.ts` — accepts username OR phone number (smart detection)
+- `app/api/auth/signup/route.ts` — creates user + farm + owner membership atomically
+- `app/api/auth/logout/route.ts` — deletes cookie
+
+**Signup flow**
+- 2-step form: Step 1 (name, phone, email optional, username optional, password), Step 2 (farm name, farm type emoji selector, region)
+- Username auto-generated from name if not provided (slugified, guaranteed unique)
+- Phone normalized to `+355XXXXXXXXX` format
+- Farm type: livestock | bees | poultry | crops | mixed
+- 12 Albanian counties in region dropdown
+
+**Login**
+- Single identifier field — detects phone vs username automatically
+- Show/hide password toggle
+- Organic Biophilic style, 52px touch targets
+
+**Dashboard (personalized per farm type)**
+- Reads user's farm from DB, renders different action cards per farm type
+- Livestock → Animals, Health, Reminders
+- Bees → Hives, Inspections, Harvests
+- Poultry → Flocks, Daily records
+- Crops → Plots, Activities
+- Mixed → All 6 sections
+- Greeting changes by time of day (Mirëmëngjes/Mirëdita/Mirëmbrëma)
+- Sticky header with Leaf logo, Settings link, Logout button
+- All SVG Lucide icons, 44px+ touch targets
+
+**API layer (all written, not all tested)**
+- `lib/api/middleware.ts` — `withAuth` (JWT → user lookup), `withFarmAccess` (role check)
+- All CRUD routes for: farms, members, sections, livestock, hives, poultry, crops, diary, reminders
+- Push subscription + cron reminder sender
+- Batch offline sync endpoint
+
+---
+
+### 🔴 Not yet built
+
+- **Beekeeper module UI** — the priority right now (see plan below)
+- Livestock module UI
+- Crops module UI
+- Poultry module UI
+- Diary entry UI
+- Reminders UI
+- Offline sync client (IndexedDB + Dexie.js)
+- Settings page
+- Photo upload (Cloudinary)
+
+---
+
+## Next Steps — Beekeeper Module (pick up here)
+
+### DB changes needed first
+Run a new `scripts/migrate-v4.mjs` to apply:
+1. `ALTER TABLE hives ADD COLUMN queen_introduced date`
+2. `ALTER TABLE hives ADD COLUMN queen_year_color smallint` (0=blue 1=white 2=yellow 3=red 4=green — ICBB)
+3. `ALTER TABLE hives ADD COLUMN queen_source varchar(100)` (bred_on_farm / purchased / caught_swarm)
+4. `ALTER TABLE hive_inspections ADD COLUMN varroa_count smallint` (mites per 100 bees)
+5. `ALTER TABLE hive_inspections ADD COLUMN supers_count smallint`
+6. `ALTER TABLE hive_inspections ADD COLUMN weight_kg decimal(8,2)`
+7. Create `hive_feedings` table: id, hive_id, fed_by, feed_date, feed_type (sugar_syrup/fondant/pollen_sub), quantity_liters decimal, notes
+8. Create `hive_swarms` table: id, hive_id, swarm_date, caught boolean, new_hive_id uuid nullable, notes
+
+Also update `db/schema.ts` to match.
+
+### Screens to build (in order)
+1. `/hives` — grid of hives, colony strength badge, last-inspection badge (red if >14 days)
+2. `/hives/new` — add hive form
+3. `/hives/[id]` — hive detail: queen status, timeline of inspections + harvests + feedings
+4. `/hives/[id]/inspect` — mobile inspection form
+5. `/hives/[id]/harvest` — harvest recording
+6. `/hives/[id]/feed` — feeding record
+
+---
+
+## Database Schema (19 tables + 3 pending)
 
 | Layer | Tables |
 |---|---|
 | ① Core | `users`, `farms`, `farm_members`, `farm_sections` |
 | ② Livestock | `livestock`, `livestock_health`, `livestock_production` |
-| ③ Bees | `hives`, `hive_inspections`, `hive_harvests` |
+| ③ Bees | `hives`, `hive_inspections`, `hive_harvests` + 🔜 `hive_feedings`, `hive_swarms` |
 | ④ Poultry | `poultry_flocks`, `poultry_daily_records` |
 | ⑤ Crops | `crop_plots`, `crop_seasons`, `crop_activities`, `crop_harvests` |
 | ⑥ Cross-cutting | `diary_entries`, `reminders`, `push_subscriptions`, `notification_log` |
 
-Key design choices:
-- **No JSONB** — all typed columns, specific tables per entity type
-- **UUIDs everywhere** — safe for offline-generated IDs
-- **Livestock is individual-animal level** — with self-referential lineage (mother_id, father_id)
-- **Poultry is flock level** — not per-bird
-- **Crops use Plot → Season → Activity hierarchy**
-- **Diary entries are polymorphic** — one table, `subject_type` + `subject_id` refs any entity
-- **farm_members has roles:** owner | manager | worker | viewer
+---
+
+## Architecture Rules (never violate)
+
+1. **Offline-first always** — write to IndexedDB first, sync to Neon in background
+2. **Albanian UI** — all user-facing strings in Albanian (next-intl not strictly required for every string yet, but keep language consistent)
+3. **Phone is the primary identifier** — login works with phone OR username, never requires email
+4. **No Clerk** — 100% custom JWT auth using bcryptjs + jose
+5. **SVG icons only** — Lucide React, never emoji as UI icons
+6. **Touch targets ≥ 44px** — min-h-[44px] or h-[52px] on all buttons/inputs
+7. **Organic Biophilic style** — rounded-2xl/3xl, farm-green palette, natural shadows, clean whitespace
+8. **One language, one codebase** — TypeScript everywhere, Next.js API routes
 
 ---
 
-## Critical Architecture Rules (never violate these)
+## How to Open a New Session
 
-1. **Offline-first always** — write to IndexedDB first, sync to Neon in background. Never block a user action on the network.
-2. **Albanian UI** — every user-facing string goes through `messages/sq.json` via next-intl.
-3. **Phone login preferred** — Clerk with SMS code, not just email.
-4. **Photo compression on client** before Cloudinary upload (not in original docs — add this).
-5. **One language, one codebase** — TypeScript everywhere, Next.js API routes, no separate backend until 5k+ users.
+1. Open Claude Code in the project folder:  `C:\GIT\Ditari i Fermes\Ditari i Fermes`
+2. Claude auto-reads `CLAUDE.md` — no need to re-explain anything
+3. Say "continue from CLAUDE.md" or just describe what you want to build next
 
 ---
 
 ## How to Update This File
 
-At the end of each session, update:
-1. **"Last session"** date
-2. **"Completed so far"** — add the ✅ item
-3. **"Not yet built"** — remove what was completed
-4. **"Next logical steps"** — update to reflect where we left off
-5. Add a new entry in `FARM_DIARY_PROJECT.md` § 10 (Session Notes)
+At the end of each session:
+1. Update **"Last session"** date
+2. Move completed items to ✅ Completed
+3. Update **"Next Steps"** section
+4. Add session notes to `FARM_DIARY_PROJECT.md` § 10
 
 ---
 
