@@ -13,25 +13,25 @@ import LogoutButton from "../LogoutButton";
 const FARM_SECTIONS: Record<string, NavCard[]> = {
   livestock: [
     { href: "/animals",   Icon: Beef,     label: "Kafshët",         desc: "Lopë, dele, dhi — gjithë kopeja", color: "bg-amber-50 text-amber-700" },
-    { href: "/reminders", Icon: Bell,     label: "Kujtueset",       desc: "Vaksinat dhe detyrat e ardhshme", color: "bg-sky-50 text-sky-700" },
+    { href: "/reminders", Icon: Bell,     label: "Detyrat",       desc: "Vaksinat dhe detyrat e ardhshme", color: "bg-sky-50 text-sky-700" },
     { href: "/diary",     Icon: BookOpen, label: "Ditari",          desc: "Shëno aktivitetin e sotëm",       color: "bg-emerald-50 text-emerald-700" },
     { href: "/diary",     Icon: Plus,     label: "Shënim i ri",     desc: "Shto regjistrim të shpejtë",      color: "bg-farm-50 text-farm-700" },
   ],
   bees: [
     { href: "/hives",     Icon: Flower2,  label: "Zgjojt",          desc: "Shiko të gjitha bletaret",        color: "bg-amber-50 text-amber-700" },
-    { href: "/reminders", Icon: Bell,     label: "Kujtueset",       desc: "Inspektimet e planifikuara",      color: "bg-sky-50 text-sky-700" },
+    { href: "/reminders", Icon: Bell,     label: "Detyrat",       desc: "Inspektimet e planifikuara",      color: "bg-sky-50 text-sky-700" },
     { href: "/diary",     Icon: BookOpen, label: "Ditari",          desc: "Shëno aktivitetin e sotëm",       color: "bg-emerald-50 text-emerald-700" },
     { href: "/hives/new", Icon: Plus,     label: "Zgjo e re",       desc: "Regjistro zgjo të re",            color: "bg-farm-50 text-farm-700" },
   ],
   poultry: [
     { href: "/poultry",   Icon: Bird,     label: "Shpeza",          desc: "Tufat, vezët dhe prodhimi",       color: "bg-amber-50 text-amber-700" },
-    { href: "/reminders", Icon: Bell,     label: "Kujtueset",       desc: "Vaksinat dhe detyrat e ardhshme", color: "bg-sky-50 text-sky-700" },
+    { href: "/reminders", Icon: Bell,     label: "Detyrat",       desc: "Vaksinat dhe detyrat e ardhshme", color: "bg-sky-50 text-sky-700" },
     { href: "/diary",     Icon: BookOpen, label: "Ditari",          desc: "Shëno aktivitetin e sotëm",       color: "bg-emerald-50 text-emerald-700" },
     { href: "/diary",     Icon: Plus,     label: "Regjistrim ditor",desc: "Vezë, ushqim, ngordhje",          color: "bg-farm-50 text-farm-700" },
   ],
   crops: [
     { href: "/crops",     Icon: Wheat,    label: "Kulturat",        desc: "Arat dhe sezoni aktiv",           color: "bg-amber-50 text-amber-700" },
-    { href: "/reminders", Icon: Bell,     label: "Kujtueset",       desc: "Ujitja dhe plehërimi",            color: "bg-sky-50 text-sky-700" },
+    { href: "/reminders", Icon: Bell,     label: "Detyrat",       desc: "Ujitja dhe plehërimi",            color: "bg-sky-50 text-sky-700" },
     { href: "/diary",     Icon: BookOpen, label: "Ditari",          desc: "Shëno aktivitetin e sotëm",       color: "bg-emerald-50 text-emerald-700" },
     { href: "/diary",     Icon: Plus,     label: "Aktivitet i ri",  desc: "Regjistro punën në arë",          color: "bg-farm-50 text-farm-700" },
   ],
@@ -41,7 +41,7 @@ const FARM_SECTIONS: Record<string, NavCard[]> = {
     { href: "/crops",     Icon: Wheat,    label: "Kulturat",        desc: "Arat dhe aktivitetet",            color: "bg-lime-50 text-lime-700" },
     { href: "/poultry",   Icon: Bird,     label: "Shpeza",          desc: "Tufat dhe vezët",                 color: "bg-orange-50 text-orange-700" },
     { href: "/diary",     Icon: BookOpen, label: "Ditari",          desc: "Shëno aktivitetin e sotëm",       color: "bg-emerald-50 text-emerald-700" },
-    { href: "/reminders", Icon: Bell,     label: "Kujtueset",       desc: "Detyrat e ardhshme",              color: "bg-sky-50 text-sky-700" },
+    { href: "/reminders", Icon: Bell,     label: "Detyrat",       desc: "Detyrat e ardhshme",              color: "bg-sky-50 text-sky-700" },
   ],
 };
 

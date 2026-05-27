@@ -9,7 +9,7 @@ import NotificationBanner from "../NotificationBanner";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kujtueset — Ditari i Fermës",
+  title: "Detyrat — Ditari i Fermës",
   description: "Menaxhoni inspektimet, vaksinat dhe detyrat e fermës tuaj",
 };
 
@@ -59,7 +59,7 @@ export default async function RemindersPage() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-100">
             <Bell className="h-4 w-4 text-sky-600" strokeWidth={1.5} />
           </div>
-          <span className="text-base font-bold text-gray-900">Kujtueset</span>
+          <span className="text-base font-bold text-gray-900">Detyrat</span>
         </div>
         <Link
           href="/reminders/new"

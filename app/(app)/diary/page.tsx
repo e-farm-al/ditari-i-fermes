@@ -30,7 +30,7 @@ export default async function DiaryPage() {
         </p>
         <div className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50 px-5 py-4">
           <p className="text-sm text-emerald-700 font-medium">
-            Ndërkohë, përdorni <strong>Kujtueset</strong> për të planifikuar detyrat e fermës.
+            Ndërkohë, përdorni <strong>Detyrat</strong> për të planifikuar detyrat e fermës.
           </p>
         </div>
       </main>

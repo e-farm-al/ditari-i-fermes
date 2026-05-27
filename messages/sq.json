@@ -25,7 +25,7 @@
     "hives": "Zgjojt",
     "poultry": "Shpeza",
     "crops": "Kulturat",
-    "reminders": "Kujtueset",
+    "reminders": "Detyrat",
     "reports": "Raportet",
     "settings": "Cilësimet",
     "farm": "Ferma ime"
@@ -274,7 +274,7 @@
     }
   },
   "reminders": {
-    "title": "Kujtueset",
+    "title": "Detyrat",
     "addReminder": "Shto kujtues",
     "reminderTitle": "Titulli",
     "dueDate": "Data e afatit",
