@@ -20,19 +20,19 @@ import { db, reminders, farmMembers, pushSubscriptions, notificationLog } from "
 import { ok, err } from "@/lib/api/middleware";
 import { API_ERRORS } from "@/lib/api/types";
 
-// Configure VAPID keys (set these in environment variables)
-webpush.setVapidDetails(
-  "mailto:kevin@farmdiary.al",
-  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
-  process.env.VAPID_PRIVATE_KEY!
-);
-
 export async function GET(req: NextRequest) {
   // Verify cron secret so only Vercel can trigger this
   const secret = req.headers.get("x-cron-secret");
   if (secret !== process.env.CRON_SECRET) {
     return err(API_ERRORS.UNAUTHENTICATED, "Unauthorized", 401);
   }
+
+  // Configure VAPID inside the handler so env vars are available at runtime
+  webpush.setVapidDetails(
+    "mailto:kevin@farmdiary.al",
+    process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
+    process.env.VAPID_PRIVATE_KEY!
+  );
 
   const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 

@@ -77,7 +77,7 @@ export default function NewReminderForm({ farmId }: { farmId: string }) {
         </Link>
         <div className="flex items-center gap-2">
           <Bell className="h-4 w-4 text-sky-500" strokeWidth={1.5} />
-          <span className="text-base font-bold text-gray-900">Detyrë e re</span>
+          <span className="text-base font-bold text-gray-900">Kujtesë e re</span>
         </div>
       </header>
 
@@ -193,7 +193,7 @@ export default function NewReminderForm({ farmId }: { farmId: string }) {
             disabled={loading}
             className="flex h-[52px] w-full items-center justify-center rounded-xl bg-farm-600 text-sm font-semibold text-white shadow-md shadow-farm-600/30 hover:bg-farm-700 active:scale-[0.98] disabled:opacity-60"
           >
-            {loading ? "Duke ruajtur..." : "Ruaj detyrën"}
+            {loading ? "Duke ruajtur..." : "Ruaj kujtesën"}
           </button>
         </form>
       </main>

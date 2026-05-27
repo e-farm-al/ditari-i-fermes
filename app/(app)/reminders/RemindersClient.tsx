@@ -180,14 +180,14 @@ export default function RemindersClient({
         <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-50">
           <Bell className="h-8 w-8 text-sky-300" strokeWidth={1.5} />
         </div>
-        <p className="mt-4 text-base font-bold text-gray-700">Nuk keni detyra</p>
-        <p className="mt-1 text-sm text-gray-400">Shtoni detyra për inspektime dhe aktivitete të fermës</p>
+        <p className="mt-4 text-base font-bold text-gray-700">Nuk keni kujtesa</p>
+        <p className="mt-1 text-sm text-gray-400">Shtoni kujtesa për inspektime dhe aktivitete të fermës</p>
         <Link
           href="/reminders/new"
           className="mt-5 flex h-12 items-center gap-2 rounded-xl bg-farm-600 px-6 text-sm font-semibold text-white shadow-sm hover:bg-farm-700"
         >
           <Plus className="h-4 w-4" />
-          Shto detyrë
+          Shto kujtesë
         </Link>
       </div>
     );

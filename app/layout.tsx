@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Ditari i Fermës",
   },
   description:
-    "Regjistro inspektimet e zgjojve, planifiko Detyrat dhe menaxho bletarinë tënde nga telefoni — edhe pa internet. Falas për bletarët shqiptarë.",
+    "Regjistro inspektimet e zgjojve, planifiko kujtesa dhe menaxho bletarinë tënde nga telefoni — edhe pa internet. Falas për bletarët shqiptarë.",
   keywords: ["bletari", "ditari", "fermë", "zgjoje", "mjaltë", "shqipëri", "bletarë"],
   manifest: "/manifest.json",
   openGraph: {

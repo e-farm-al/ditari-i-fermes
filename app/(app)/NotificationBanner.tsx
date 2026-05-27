@@ -74,7 +74,7 @@ export default function NotificationBanner() {
     <div className="rounded-2xl border border-sky-100 bg-sky-50 p-4">
       {done ? (
         <p className="text-sm font-semibold text-sky-700 text-center">
-          Njoftimet u aktivizuan!
+          Alarmet u aktivizuan!
         </p>
       ) : (
         <div className="flex items-start gap-3">
@@ -82,9 +82,9 @@ export default function NotificationBanner() {
             <Bell className="h-5 w-5 text-sky-600" strokeWidth={1.5} />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-bold text-gray-800">Aktivizo njoftimet</p>
+            <p className="text-sm font-bold text-gray-800">Aktivizo alarmet</p>
             <p className="mt-0.5 text-xs text-gray-500 leading-snug">
-              Marr njoftim kur afrohen inspektimet dhe detyrat
+              Merr alarm kur afrohen kujtesa e planifikuara
             </p>
             <div className="mt-3 flex gap-2">
               <button
@@ -92,7 +92,7 @@ export default function NotificationBanner() {
                 disabled={loading}
                 className="flex h-9 items-center rounded-xl bg-sky-600 px-4 text-xs font-bold text-white hover:bg-sky-700 disabled:opacity-60"
               >
-                {loading ? "Duke u aktivizuar..." : "Aktivizo"}
+                {loading ? "Duke aktivizuar..." : "Aktivizo alarmet"}
               </button>
               <button
                 onClick={dismiss}

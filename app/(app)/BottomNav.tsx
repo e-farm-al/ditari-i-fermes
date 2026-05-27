@@ -22,7 +22,7 @@ export default function BottomNav({ farmType }: { farmType: string }) {
     { href: "/dashboard", Icon: Home,     label: "Ballina" },
     section,
     { href: "/diary",     Icon: BookOpen, label: "Ditari" },
-    { href: "/reminders", Icon: Bell,     label: "Detyrat" },
+    { href: "/reminders", Icon: Bell,     label: "Kujtesa" },
   ];
 
   return (
