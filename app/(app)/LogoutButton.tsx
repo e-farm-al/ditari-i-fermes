@@ -15,11 +15,11 @@ export default function LogoutButton() {
   return (
     <button
       onClick={handleLogout}
-      className="flex h-9 cursor-pointer items-center gap-1.5 rounded-lg border border-gray-200 px-3 text-xs font-medium text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700"
-      aria-label="Dil"
+      className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-700"
+      aria-label="Dil nga llogaria"
+      title="Dil"
     >
-      <LogOut className="h-3.5 w-3.5" />
-      Dil
+      <LogOut className="h-4 w-4" strokeWidth={1.5} />
     </button>
   );
 }
