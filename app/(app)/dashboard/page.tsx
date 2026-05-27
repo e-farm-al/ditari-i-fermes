@@ -192,7 +192,7 @@ export default async function DashboardPage() {
                   {reminderCount}
                 </p>
                 <p className={`mt-0.5 text-xs font-medium ${reminderCount > 0 ? "text-sky-600" : "text-gray-400"}`}>
-                  Kujtuese
+                  Detyra aktive
                 </p>
               </div>
             </Link>

@@ -100,7 +100,7 @@ export default function EditReminderForm({
         </Link>
         <div className="flex items-center gap-2">
           <Bell className="h-4 w-4 text-sky-500" strokeWidth={1.5} />
-          <span className="text-base font-bold text-gray-900">Ndrysho kujtuesën</span>
+          <span className="text-base font-bold text-gray-900">Ndrysho detyrën</span>
         </div>
       </header>
 
@@ -227,7 +227,7 @@ export default function EditReminderForm({
               className="flex h-11 w-full items-center justify-center gap-2 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-100"
             >
               <Trash2 className="h-4 w-4" />
-              Fshi kujtuesën
+              Fshi detyrën
             </button>
           )}
         </div>

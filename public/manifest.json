@@ -32,9 +32,9 @@
       "icons": [{ "src": "/icons/shortcut-diary.png", "sizes": "96x96" }]
     },
     {
-      "name": "Kujtuese e re",
-      "short_name": "Kujtues",
-      "description": "Shto një kujtues të ri",
+      "name": "Ditari i Fermës",
+      "short_name": "Detyra",
+      "description": "Shto një detyrë të re për inspektime dhe aktivitete të fermës",
       "url": "/reminders/new",
       "icons": [{ "src": "/icons/shortcut-reminder.png", "sizes": "96x96" }]
     }

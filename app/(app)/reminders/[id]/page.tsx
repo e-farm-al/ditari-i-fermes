@@ -6,7 +6,7 @@ import EditReminderForm from "./EditReminderForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ndrysho kujtuesën — Ditari i Fermës",
+  title: "Ndrysho detyrën — Ditari i Fermës",
 };
 
 type Props = { params: { id: string } };

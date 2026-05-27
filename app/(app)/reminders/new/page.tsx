@@ -6,7 +6,7 @@ import NewReminderForm from "./NewReminderForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kujtuesë e re — Ditari i Fermës",
+  title: "Detyrë e re — Ditari i Fermës",
 };
 
 export default async function NewReminderPage() {

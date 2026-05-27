@@ -275,12 +275,12 @@
   },
   "reminders": {
     "title": "Detyrat",
-    "addReminder": "Shto kujtues",
+    "addReminder": "Shto detyrë",
     "reminderTitle": "Titulli",
     "dueDate": "Data e afatit",
     "dueTime": "Ora",
     "repeat": "Përsërit",
-    "noReminders": "Nuk ka kujtues aktive.",
+    "noReminders": "Nuk ka detyra aktive.",
     "status": {
       "pending": "Në pritje",
       "sent": "Dërguar",
