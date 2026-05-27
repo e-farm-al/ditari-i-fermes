@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -X POST http://localhost:3001/api/auth/signup -H \"Content-Type: application/json\" -d \"{\\\\\"name\\\\\":\\\\\"Test Farmer\\\\\",\\\\\"email\\\\\":\\\\\"test@farmdiary.al\\\\\",\\\\\"password\\\\\":\\\\\"testpass123\\\\\"}\")",
+      "Bash(curl -s -b /tmp/cookies.txt http://localhost:3001/dashboard)",
+      "Bash(node scripts/migrate-v2.mjs)",
+      "Bash(curl -s -X POST http://localhost:3001/api/auth/signup -H \"Content-Type: application/json\" -d \"{\\\\\"name\\\\\":\\\\\"Agim Brahimi\\\\\",\\\\\"phone\\\\\":\\\\\"0691234567\\\\\",\\\\\"password\\\\\":\\\\\"ferma123\\\\\",\\\\\"farmName\\\\\":\\\\\"Ferma Brahimi\\\\\",\\\\\"farmType\\\\\":\\\\\"livestock\\\\\",\\\\\"region\\\\\":\\\\\"Shkodër\\\\\"}\")",
+      "Bash(curl -s -c /tmp/cookies2.txt -X POST http://localhost:3001/api/auth/login -H \"Content-Type: application/json\" -d \"{\\\\\"identifier\\\\\":\\\\\"0691234567\\\\\",\\\\\"password\\\\\":\\\\\"ferma123\\\\\"}\")",
+      "Bash(curl -s -b /tmp/cookies2.txt http://localhost:3001/dashboard)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npm show *)",
+      "Bash(uipro init *)",
+      "Bash(find .claude -type f)",
+      "Bash(dir /s /b .claude)",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"agricultural farm management mobile dashboard Albanian farmers simple trustworthy\" --design-system --persist -p \"Ditari i Fermes\" -f markdown)",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"mobile form login signup touch accessibility\" --domain ux -n 8)",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"dashboard mobile farmer agriculture\" --domain product -n 5)",
+      "Bash(node -e \"require\\('lucide-react'\\); console.log\\('ok'\\)\")",
+      "Bash(node scripts/migrate-v3.mjs)",
+      "Bash(curl -s -X POST http://localhost:3001/api/auth/signup -H \"Content-Type: application/json\" -d \"{\\\\\"name\\\\\":\\\\\"Bledar Hoxha\\\\\",\\\\\"username\\\\\":\\\\\"bledar\\\\\",\\\\\"phone\\\\\":\\\\\"0671234567\\\\\",\\\\\"password\\\\\":\\\\\"ferma99\\\\\",\\\\\"farmName\\\\\":\\\\\"Bletaria Hoxha\\\\\",\\\\\"farmType\\\\\":\\\\\"bees\\\\\",\\\\\"region\\\\\":\\\\\"Korce\\\\\"}\")",
+      "PowerShell(Invoke-RestMethod -Method POST -Uri \"http://localhost:3001/api/auth/signup\" -ContentType \"application/json\" -Body '{\"name\":\"Bledar Hoxha\",\"username\":\"bledar\",\"phone\":\"0671234567\",\"password\":\"ferma99\",\"farmName\":\"Bletaria Hoxha\",\"farmType\":\"bees\",\"region\":\"Korce\"}')",
+      "PowerShell($r = Invoke-RestMethod -Method POST -Uri \"http://localhost:3001/api/auth/signup\" -ContentType \"application/json\" -Body '{\"name\":\"Bledar Hoxha\",\"username\":\"bledar\",\"phone\":\"0671234567\",\"password\":\"ferma99\",\"farmName\":\"Bletaria Hoxha\",\"farmType\":\"bees\",\"region\":\"Korce\"}'; Write-Output $r.ok; Write-Output $r.username)",
+      "PowerShell($r = Invoke-RestMethod -Method POST -Uri \"http://localhost:3001/api/auth/login\" -ContentType \"application/json\" -Body '{\"identifier\":\"0671234567\",\"password\":\"ferma99\"}'; Write-Output \"Phone login ok: $\\($r.ok\\)\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

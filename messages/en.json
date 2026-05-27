@@ -1,0 +1,55 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "add": "Add",
+    "view": "View",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "unknown": "Unknown"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "diary": "Diary",
+    "animals": "Animals",
+    "hives": "Hives",
+    "poultry": "Poultry",
+    "crops": "Crops",
+    "reminders": "Reminders",
+    "reports": "Reports",
+    "settings": "Settings",
+    "farm": "My Farm"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "phone": "Phone number",
+    "email": "Email",
+    "welcome": "Welcome",
+    "welcomeBack": "Welcome back"
+  },
+  "offline": {
+    "savedLocally": "Saved locally",
+    "syncing": "Syncing...",
+    "synced": "Synced",
+    "noInternet": "No internet connection",
+    "willSyncWhenOnline": "Will sync when back online"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "notFound": "Not found.",
+    "unauthorized": "You are not signed in.",
+    "forbidden": "You don't have permission for this action.",
+    "networkError": "Network error. Check your connection."
+  }
+}

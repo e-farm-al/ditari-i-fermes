@@ -1,0 +1,312 @@
+{
+  "common": {
+    "save": "Ruaj",
+    "cancel": "Anulo",
+    "delete": "Fshi",
+    "edit": "Ndrysho",
+    "back": "Kthehu",
+    "loading": "Duke ngarkuar...",
+    "error": "Gabim",
+    "success": "Sukses",
+    "confirm": "Konfirmo",
+    "search": "Kërko",
+    "filter": "Filtro",
+    "add": "Shto",
+    "view": "Shiko",
+    "close": "Mbyll",
+    "yes": "Po",
+    "no": "Jo",
+    "unknown": "I panjohur"
+  },
+  "nav": {
+    "dashboard": "Ballina",
+    "diary": "Ditari",
+    "animals": "Kafshët",
+    "hives": "Zgjojt",
+    "poultry": "Shpeza",
+    "crops": "Kulturat",
+    "reminders": "Kujtueset",
+    "reports": "Raportet",
+    "settings": "Cilësimet",
+    "farm": "Ferma ime"
+  },
+  "auth": {
+    "signIn": "Hyr",
+    "signOut": "Dil",
+    "phone": "Numri i telefonit",
+    "email": "Email-i",
+    "welcome": "Mirë se vini",
+    "welcomeBack": "Mirë se u kthyet"
+  },
+  "farm": {
+    "myFarm": "Ferma ime",
+    "createFarm": "Krijo fermë",
+    "farmName": "Emri i fermës",
+    "region": "Rajoni",
+    "location": "Vendndodhja",
+    "size": "Sipërfaqja (ha)",
+    "members": "Anëtarët",
+    "sections": "Seksionet",
+    "roles": {
+      "owner": "Pronar",
+      "manager": "Menaxher",
+      "worker": "Punëtor",
+      "viewer": "Shikues"
+    }
+  },
+  "diary": {
+    "title": "Ditari",
+    "newEntry": "Shënim i ri",
+    "entryDate": "Data e ngjarjes",
+    "category": "Kategoria",
+    "notes": "Shënime",
+    "photo": "Foto",
+    "addPhoto": "Shto foto",
+    "noEntries": "Nuk ka shënime ende.",
+    "categories": {
+      "health": "Shëndet",
+      "feeding": "Ushqim",
+      "production": "Prodhim",
+      "weather": "Mot",
+      "maintenance": "Mirëmbajtje",
+      "financial": "Financiare",
+      "observation": "Vëzhgim",
+      "other": "Tjetër"
+    }
+  },
+  "livestock": {
+    "title": "Kafshët",
+    "addAnimal": "Shto kafshë",
+    "tagNumber": "Numri i vathës",
+    "name": "Emri (opsional)",
+    "breed": "Raca",
+    "dateOfBirth": "Data e lindjes",
+    "dateAcquired": "Data e blerjes",
+    "noAnimals": "Nuk ka kafshë të regjistruara.",
+    "species": {
+      "cow": "Lopë",
+      "sheep": "Dele",
+      "goat": "Dhi",
+      "pig": "Derr",
+      "horse": "Kalë",
+      "donkey": "Gomar",
+      "other": "Tjetër"
+    },
+    "sex": {
+      "male": "Mashkull",
+      "female": "Femër"
+    },
+    "status": {
+      "active": "Aktive",
+      "sold": "Shitur",
+      "deceased": "Vdekur",
+      "transferred": "Transferuar"
+    },
+    "acquisition": {
+      "born_on_farm": "Lindur në fermë",
+      "purchased": "Blerë",
+      "gifted": "Dhuruar"
+    },
+    "health": {
+      "title": "Shëndeti",
+      "addRecord": "Shto regjistrim",
+      "recordTypes": {
+        "vaccination": "Vaksinim",
+        "treatment": "Trajtim",
+        "checkup": "Kontroll",
+        "illness": "Sëmundje",
+        "surgery": "Operacion",
+        "other": "Tjetër"
+      }
+    },
+    "production": {
+      "title": "Prodhimi",
+      "types": {
+        "milk": "Qumësht",
+        "wool": "Lesh",
+        "meat": "Mish",
+        "other": "Tjetër"
+      }
+    }
+  },
+  "hives": {
+    "title": "Zgjojt",
+    "addHive": "Shto zgjo",
+    "hiveCode": "Kodi i zgjos",
+    "installationDate": "Data e instalimit",
+    "locationNotes": "Vendndodhja",
+    "noHives": "Nuk ka zgjo të regjistruara.",
+    "types": {
+      "langstroth": "Langstroth",
+      "dadant": "Dadant",
+      "top_bar": "Top Bar",
+      "warre": "Warré",
+      "other": "Tjetër"
+    },
+    "status": {
+      "active": "Aktive",
+      "inactive": "Joaktive",
+      "lost": "Humbur",
+      "sold": "Shitur"
+    },
+    "inspection": {
+      "title": "Inspektim",
+      "addInspection": "Shto inspektim",
+      "queenPresent": "Ka mbretëreshë",
+      "colonyStrength": "Fuqia e kolonisë",
+      "honeyStores": "Rezerva mjalti",
+      "strengthLevels": {
+        "very_weak": "Shumë e dobët",
+        "weak": "E dobët",
+        "moderate": "Mesatare",
+        "strong": "E fortë",
+        "very_strong": "Shumë e fortë"
+      },
+      "storeLevels": {
+        "empty": "Bosh",
+        "low": "Pak",
+        "adequate": "Mjaftueshëm",
+        "full": "Plot"
+      }
+    },
+    "harvest": {
+      "title": "Korrje",
+      "addHarvest": "Shto korrje",
+      "honeyKg": "Mjaltë (kg)",
+      "waxKg": "Dyllë (kg)",
+      "propolisG": "Propolis (g)"
+    }
+  },
+  "poultry": {
+    "title": "Shpeza",
+    "addFlock": "Shto tufë",
+    "flockName": "Emri i tufës",
+    "currentCount": "Numri aktual",
+    "noFlocks": "Nuk ka tufa të regjistruara.",
+    "species": {
+      "chicken": "Pulë",
+      "duck": "Rosë",
+      "turkey": "Gjel deti",
+      "goose": "Patë",
+      "quail": "Shkurtash",
+      "other": "Tjetër"
+    },
+    "purpose": {
+      "eggs": "Vezë",
+      "meat": "Mish",
+      "dual": "Vezë dhe mish",
+      "breeding": "Mbarështim"
+    },
+    "status": {
+      "active": "Aktive",
+      "sold": "Shitur",
+      "deceased": "Ngordhur",
+      "disbanded": "Shpërbërë"
+    },
+    "dailyRecord": {
+      "title": "Regjistrim ditor",
+      "addRecord": "Shto regjistrim",
+      "eggsCollected": "Vezë të mbledhura",
+      "mortalityCount": "Ngordhje",
+      "feedKg": "Ushqim (kg)",
+      "waterLiters": "Ujë (litra)"
+    }
+  },
+  "crops": {
+    "title": "Kulturat",
+    "addPlot": "Shto arë",
+    "plotName": "Emri i arës",
+    "areaHectares": "Sipërfaqja (ha)",
+    "noPlots": "Nuk ka ara të regjistruara.",
+    "irrigationTypes": {
+      "none": "Pa ujitje",
+      "drip": "Pikë-pikë",
+      "sprinkler": "Spërkëlues",
+      "flood": "Përmbytje",
+      "rain_only": "Vetëm shi"
+    },
+    "plotStatus": {
+      "active": "Aktive",
+      "fallow": "Djerrë",
+      "sold": "Shitur"
+    },
+    "season": {
+      "title": "Sezoni",
+      "addSeason": "Shto sezon",
+      "cropType": "Lloji i kulturës",
+      "variety": "Varieteti",
+      "plantingDate": "Data e mbjelljes",
+      "expectedHarvest": "Korrja e pritshme",
+      "seedQuantity": "Sasia e farës (kg)",
+      "status": {
+        "planned": "Planifikuar",
+        "planted": "Mbjellë",
+        "growing": "Në rritje",
+        "harvested": "Korrur",
+        "failed": "Dështuar"
+      }
+    },
+    "activity": {
+      "title": "Aktivitet",
+      "addActivity": "Shto aktivitet",
+      "types": {
+        "planting": "Mbjellë",
+        "irrigation": "Ujitje",
+        "fertilization": "Plehërim",
+        "pesticide": "Pesticide",
+        "harvesting": "Korrje",
+        "pruning": "Krasitje",
+        "weeding": "Prashitje",
+        "soil_prep": "Përgatitja e tokës",
+        "other": "Tjetër"
+      }
+    },
+    "harvest": {
+      "title": "Korrje",
+      "addHarvest": "Shto korrje",
+      "quantityKg": "Sasia (kg)",
+      "quality": {
+        "excellent": "Shkëlqyer",
+        "good": "Mirë",
+        "fair": "Mesatare",
+        "poor": "Dobët"
+      }
+    }
+  },
+  "reminders": {
+    "title": "Kujtueset",
+    "addReminder": "Shto kujtues",
+    "reminderTitle": "Titulli",
+    "dueDate": "Data e afatit",
+    "dueTime": "Ora",
+    "repeat": "Përsërit",
+    "noReminders": "Nuk ka kujtues aktive.",
+    "status": {
+      "pending": "Në pritje",
+      "sent": "Dërguar",
+      "dismissed": "Hequr",
+      "completed": "Kryer"
+    },
+    "repeatTypes": {
+      "none": "Asnjëherë",
+      "daily": "Çdo ditë",
+      "weekly": "Çdo javë",
+      "monthly": "Çdo muaj",
+      "yearly": "Çdo vit"
+    }
+  },
+  "offline": {
+    "savedLocally": "Ruajtur lokalisht",
+    "syncing": "Duke sinkronizuar...",
+    "synced": "Sinkronizuar",
+    "noInternet": "Nuk ka lidhje interneti",
+    "willSyncWhenOnline": "Do të sinkronizohet kur të keni internet"
+  },
+  "errors": {
+    "generic": "Diçka shkoi gabim. Provoni sërish.",
+    "notFound": "Nuk u gjet.",
+    "unauthorized": "Nuk jeni të identifikuar.",
+    "forbidden": "Nuk keni leje për këtë veprim.",
+    "networkError": "Gabim rrjeti. Kontrolloni lidhjen."
+  }
+}

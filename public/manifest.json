@@ -1,0 +1,42 @@
+{
+  "name": "Ditari i Fermës",
+  "short_name": "FarmDiary",
+  "description": "Menaxhoni fermën tuaj nga telefoni — edhe pa internet.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "orientation": "portrait-primary",
+  "lang": "sq",
+  "categories": ["productivity", "agriculture"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Shënim i ri",
+      "short_name": "Shënim",
+      "description": "Shto një shënim të ri në ditar",
+      "url": "/diary/new",
+      "icons": [{ "src": "/icons/shortcut-diary.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Kujtuese e re",
+      "short_name": "Kujtues",
+      "description": "Shto një kujtues të ri",
+      "url": "/reminders/new",
+      "icons": [{ "src": "/icons/shortcut-reminder.png", "sizes": "96x96" }]
+    }
+  ]
+}
