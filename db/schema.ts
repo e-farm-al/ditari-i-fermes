@@ -428,6 +428,9 @@ export const hives = pgTable(
     locationNotes: varchar("location_notes", { length: 255 }),
     status: hiveStatusEnum("status").notNull().default("active"),
     notes: text("notes"),
+    queenIntroduced: date("queen_introduced"),
+    queenYearColor: smallint("queen_year_color"),
+    queenSource: varchar("queen_source", { length: 100 }),
     ...timestamps,
   },
   (t) => ({
@@ -458,6 +461,7 @@ export const hiveInspections = pgTable(
     diseaseNotes: text("disease_notes"),
     temperament: hiveTemperamentEnum("temperament"),
     treatmentApplied: varchar("treatment_applied", { length: 255 }),
+    supersCount: smallint("supers_count"),
     notes: text("notes"),
     ...timestamps,
   },
@@ -487,6 +491,27 @@ export const hiveHarvests = pgTable(
   (t) => ({
     hiveIdx: index("hive_harvests_hive_idx").on(t.hiveId),
     dateIdx: index("hive_harvests_date_idx").on(t.harvestDate),
+  })
+);
+
+export const hiveSwarms = pgTable(
+  "hive_swarms",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    hiveId: uuid("hive_id")
+      .notNull()
+      .references(() => hives.id, { onDelete: "cascade" }),
+    swarmDate: date("swarm_date").notNull(),
+    caught: boolean("caught").notNull().default(false),
+    newHiveId: uuid("new_hive_id").references(() => hives.id, {
+      onDelete: "set null",
+    }),
+    notes: text("notes"),
+    ...timestamps,
+  },
+  (t) => ({
+    hiveIdx: index("hive_swarms_hive_idx").on(t.hiveId),
+    dateIdx: index("hive_swarms_date_idx").on(t.swarmDate),
   })
 );
 
@@ -853,6 +878,8 @@ export const hivesRelations = relations(hives, ({ one, many }) => ({
   }),
   inspections: many(hiveInspections),
   harvests: many(hiveHarvests),
+  swarms: many(hiveSwarms, { relationName: "swarmSource" }),
+  caughtSwarms: many(hiveSwarms, { relationName: "swarmDest" }),
 }));
 
 export const hiveInspectionsRelations = relations(hiveInspections, ({ one }) => ({
@@ -874,6 +901,19 @@ export const hiveHarvestsRelations = relations(hiveHarvests, ({ one }) => ({
   harvestedByUser: one(users, {
     fields: [hiveHarvests.harvestedBy],
     references: [users.id],
+  }),
+}));
+
+export const hiveSwarmsRelations = relations(hiveSwarms, ({ one }) => ({
+  hive: one(hives, {
+    fields: [hiveSwarms.hiveId],
+    references: [hives.id],
+    relationName: "swarmSource",
+  }),
+  newHive: one(hives, {
+    fields: [hiveSwarms.newHiveId],
+    references: [hives.id],
+    relationName: "swarmDest",
   }),
 }));
 
@@ -1023,6 +1063,9 @@ export type NewHiveInspection = typeof hiveInspections.$inferInsert;
 
 export type HiveHarvest = typeof hiveHarvests.$inferSelect;
 export type NewHiveHarvest = typeof hiveHarvests.$inferInsert;
+
+export type HiveSwarm = typeof hiveSwarms.$inferSelect;
+export type NewHiveSwarm = typeof hiveSwarms.$inferInsert;
 
 export type PoultryFlock = typeof poultryFlocks.$inferSelect;
 export type NewPoultryFlock = typeof poultryFlocks.$inferInsert;

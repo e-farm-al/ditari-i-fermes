@@ -45,7 +45,8 @@ export async function POST(req: NextRequest, { params }: Params) {
     const {
       inspectionDate, queenPresent, queenStatus, colonyStrength,
       framesWithBees, framesWithBrood, honeyStores,
-      diseaseSigns, diseaseNotes, temperament, treatmentApplied, notes,
+      diseaseSigns, diseaseNotes, temperament, treatmentApplied,
+      supersCount, notes,
     } = body;
 
     if (!inspectionDate) {
@@ -62,7 +63,8 @@ export async function POST(req: NextRequest, { params }: Params) {
         queenStatus, colonyStrength,
         framesWithBees, framesWithBrood, honeyStores,
         diseaseSigns: diseaseSigns ?? false,
-        diseaseNotes, temperament, treatmentApplied, notes,
+        diseaseNotes, temperament, treatmentApplied,
+        supersCount, notes,
       })
       .returning();
 

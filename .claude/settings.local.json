@@ -24,7 +24,8 @@
       "PowerShell(Invoke-RestMethod -Method POST -Uri \"http://localhost:3001/api/auth/signup\" -ContentType \"application/json\" -Body '{\"name\":\"Bledar Hoxha\",\"username\":\"bledar\",\"phone\":\"0671234567\",\"password\":\"ferma99\",\"farmName\":\"Bletaria Hoxha\",\"farmType\":\"bees\",\"region\":\"Korce\"}')",
       "PowerShell($r = Invoke-RestMethod -Method POST -Uri \"http://localhost:3001/api/auth/signup\" -ContentType \"application/json\" -Body '{\"name\":\"Bledar Hoxha\",\"username\":\"bledar\",\"phone\":\"0671234567\",\"password\":\"ferma99\",\"farmName\":\"Bletaria Hoxha\",\"farmType\":\"bees\",\"region\":\"Korce\"}'; Write-Output $r.ok; Write-Output $r.username)",
       "PowerShell($r = Invoke-RestMethod -Method POST -Uri \"http://localhost:3001/api/auth/login\" -ContentType \"application/json\" -Body '{\"identifier\":\"0671234567\",\"password\":\"ferma99\"}'; Write-Output \"Phone login ok: $\\($r.ok\\)\")",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(node scripts/migrate-v4.mjs)"
     ]
   }
 }

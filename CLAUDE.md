@@ -32,7 +32,7 @@
 
 ## Current State
 
-**Last session:** May 27, 2026
+**Last session:** May 27, 2026 — Beekeeper module complete
 
 ### ✅ Completed
 
@@ -87,12 +87,24 @@
 - Push subscription + cron reminder sender
 - Batch offline sync endpoint
 
+**Beekeeper module (completed May 27, 2026)**
+- `scripts/migrate-v4.mjs` — applied: queen cols on hives, supers_count on inspections, hive_swarms table
+- `db/schema.ts` — updated with new columns, `hiveSwarms` table + relations + types
+- `app/api/farms/[farmId]/hives/[hiveId]/swarms/route.ts` — GET/POST swarms
+- Updated hives POST/PUT and inspections POST to include new fields
+- 5 UI screens under `app/(app)/hives/`:
+  - `/hives` — grid with strength badge + overdue warning (>14 days)
+  - `/hives/new` — add hive form (all queen fields)
+  - `/hives/[id]` — detail + mixed chronological timeline (inspections + harvests + swarms)
+  - `/hives/[id]/inspect` — mobile inspection form
+  - `/hives/[id]/harvest` — harvest recording
+  - `/hives/[id]/swarm` — swarm recording with caught/lost + new hive link
+
 ---
 
 ### 🔴 Not yet built
 
-- **Beekeeper module UI** — the priority right now (see plan below)
-- Livestock module UI
+- **Livestock module UI**
 - Crops module UI
 - Poultry module UI
 - Diary entry UI
@@ -100,31 +112,18 @@
 - Offline sync client (IndexedDB + Dexie.js)
 - Settings page
 - Photo upload (Cloudinary)
+- `hive_feedings` table + UI (deferred — add in a future session)
 
 ---
 
-## Next Steps — Beekeeper Module (pick up here)
+## Next Steps — Livestock Module (next priority)
 
-### DB changes needed first
-Run a new `scripts/migrate-v4.mjs` to apply:
-1. `ALTER TABLE hives ADD COLUMN queen_introduced date`
-2. `ALTER TABLE hives ADD COLUMN queen_year_color smallint` (0=blue 1=white 2=yellow 3=red 4=green — ICBB)
-3. `ALTER TABLE hives ADD COLUMN queen_source varchar(100)` (bred_on_farm / purchased / caught_swarm)
-4. `ALTER TABLE hive_inspections ADD COLUMN varroa_count smallint` (mites per 100 bees)
-5. `ALTER TABLE hive_inspections ADD COLUMN supers_count smallint`
-6. `ALTER TABLE hive_inspections ADD COLUMN weight_kg decimal(8,2)`
-7. Create `hive_feedings` table: id, hive_id, fed_by, feed_date, feed_type (sugar_syrup/fondant/pollen_sub), quantity_liters decimal, notes
-8. Create `hive_swarms` table: id, hive_id, swarm_date, caught boolean, new_hive_id uuid nullable, notes
-
-Also update `db/schema.ts` to match.
-
-### Screens to build (in order)
-1. `/hives` — grid of hives, colony strength badge, last-inspection badge (red if >14 days)
-2. `/hives/new` — add hive form
-3. `/hives/[id]` — hive detail: queen status, timeline of inspections + harvests + feedings
-4. `/hives/[id]/inspect` — mobile inspection form
-5. `/hives/[id]/harvest` — harvest recording
-6. `/hives/[id]/feed` — feeding record
+Build the same pattern as beekeeper:
+1. `/animals` — list of livestock with species filter
+2. `/animals/new` — add animal form
+3. `/animals/[id]` — animal detail with health + production timeline
+4. `/animals/[id]/health` — health record form (vaccination, treatment, etc.)
+5. `/animals/[id]/production` — production record (milk, wool, etc.)
 
 ---
 

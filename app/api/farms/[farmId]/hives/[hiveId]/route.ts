@@ -35,7 +35,10 @@ export async function PUT(req: NextRequest, { params }: Params) {
     if (!hive) return err(API_ERRORS.HIVE_NOT_FOUND, "Hive not found", 404);
 
     const body = await req.json();
-    const { hiveCode, hiveType, installationDate, locationNotes, sectionId, status, notes } = body;
+    const {
+      hiveCode, hiveType, installationDate, locationNotes, sectionId, status, notes,
+      queenIntroduced, queenYearColor, queenSource,
+    } = body;
 
     const [updated] = await db
       .update(hives)
@@ -47,6 +50,9 @@ export async function PUT(req: NextRequest, { params }: Params) {
         ...(sectionId !== undefined && { sectionId }),
         ...(status !== undefined && { status }),
         ...(notes !== undefined && { notes }),
+        ...(queenIntroduced !== undefined && { queenIntroduced }),
+        ...(queenYearColor !== undefined && { queenYearColor }),
+        ...(queenSource !== undefined && { queenSource }),
         updatedAt: new Date(),
       })
       .where(eq(hives.id, params.hiveId))

@@ -27,7 +27,10 @@ export async function GET(req: NextRequest, { params }: Params) {
 export async function POST(req: NextRequest, { params }: Params) {
   return withFarmAccess(req, params.farmId, "worker", async ({ farm }) => {
     const body = await req.json();
-    const { hiveCode, hiveType, installationDate, locationNotes, sectionId, notes } = body;
+    const {
+      hiveCode, hiveType, installationDate, locationNotes, sectionId, notes,
+      queenIntroduced, queenYearColor, queenSource,
+    } = body;
 
     if (!hiveCode) {
       return err(API_ERRORS.VALIDATION_ERROR, "hiveCode is required", 422);
@@ -39,6 +42,7 @@ export async function POST(req: NextRequest, { params }: Params) {
         farmId: farm.id,
         hiveCode, hiveType: hiveType ?? "langstroth",
         installationDate, locationNotes, sectionId, notes,
+        queenIntroduced, queenYearColor, queenSource,
       })
       .returning();
 

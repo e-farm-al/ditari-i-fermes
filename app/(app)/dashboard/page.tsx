@@ -19,10 +19,10 @@ const FARM_SECTIONS: Record<string, NavCard[]> = {
     { href: "/diary",     Icon: Plus,     label: "Shënim i ri",desc: "Shto regjistrim",           color: "bg-farm-50 text-farm-700" },
   ],
   bees: [
-    { href: "/diary",     Icon: BookOpen, label: "Ditari",     desc: "Shënime të sotme",          color: "bg-emerald-50 text-emerald-700" },
-    { href: "/hives",     Icon: Flower2,  label: "Zgjojt",     desc: "Inspektim dhe korrje",      color: "bg-amber-50 text-amber-700" },
-    { href: "/reminders", Icon: Bell,     label: "Kujtueset",  desc: "Inspektimet e ardhshme",    color: "bg-sky-50 text-sky-700" },
-    { href: "/diary",     Icon: Plus,     label: "Inspektim i ri", desc: "Regjistro zgjon",       color: "bg-farm-50 text-farm-700" },
+    { href: "/hives",     Icon: Flower2,  label: "Zgjojt",         desc: "Shiko të gjitha zgjojt", color: "bg-amber-50 text-amber-700" },
+    { href: "/hives/new", Icon: Plus,     label: "Zgjo e re",       desc: "Shto zgjo të re",        color: "bg-farm-50 text-farm-700" },
+    { href: "/diary",     Icon: BookOpen, label: "Ditari",          desc: "Shënime të sotme",       color: "bg-emerald-50 text-emerald-700" },
+    { href: "/reminders", Icon: Bell,     label: "Kujtueset",       desc: "Inspektimet e ardhshme", color: "bg-sky-50 text-sky-700" },
   ],
   poultry: [
     { href: "/diary",     Icon: BookOpen, label: "Ditari",     desc: "Shënime të sotme",          color: "bg-emerald-50 text-emerald-700" },
