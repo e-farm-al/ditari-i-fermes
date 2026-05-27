@@ -20,6 +20,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { eq, and } from "drizzle-orm";
 import { db, diaryEntries, livestock, hives, poultryFlocks, reminders, farmMembers } from "@/db";
+import type { NewLivestock, NewReminder } from "@/db/schema";
 import { withAuth, ok, err } from "@/lib/api/middleware";
 import { API_ERRORS } from "@/lib/api/types";
 
@@ -126,7 +127,7 @@ async function applyMutation(mutation: SyncMutation, userId: string) {
       if (action === "create") {
         await db
           .insert(livestock)
-          .values({ id: payload.id, farmId, ...payload })
+          .values({ id: payload.id, farmId, ...payload } as NewLivestock)
           .onConflictDoNothing();
       } else if (action === "update") {
         await db
@@ -141,7 +142,7 @@ async function applyMutation(mutation: SyncMutation, userId: string) {
       if (action === "create") {
         await db
           .insert(reminders)
-          .values({ id: payload.id, farmId, createdBy: userId, ...payload })
+          .values({ id: payload.id, farmId, createdBy: userId, ...payload } as NewReminder)
           .onConflictDoNothing();
       } else if (action === "update") {
         await db
