@@ -9,13 +9,14 @@ import {
   Beef, Bird, Flower2, Wheat, Sprout, MapPin,
 } from "lucide-react";
 
+// To re-enable a farm type: set disabled: false
 const FARM_TYPES = [
-  { value: "livestock", Icon: Beef,    label: "Blegtori",   hint: "Lopë, dele, dhi, kuaj" },
-  { value: "poultry",   Icon: Bird,    label: "Shpezari",   hint: "Pula, rosë, gjelinë" },
-  { value: "bees",      Icon: Flower2, label: "Bletari",    hint: "Zgjoje dhe mjaltë" },
-  { value: "crops",     Icon: Wheat,   label: "Bujqësi",    hint: "Grurë, misër, perime" },
-  { value: "mixed",     Icon: Sprout,  label: "E përzier",  hint: "Kafshë dhe bujqësi" },
-] as const;
+  { value: "livestock", Icon: Beef,    label: "Blegtori",   hint: "Lopë, dele, dhi, kuaj", disabled: true },
+  { value: "poultry",   Icon: Bird,    label: "Shpezari",   hint: "Pula, rosë, gjelinë",   disabled: true },
+  { value: "bees",      Icon: Flower2, label: "Bletari",    hint: "Zgjoje dhe mjaltë",      disabled: false },
+  { value: "crops",     Icon: Wheat,   label: "Bujqësi",    hint: "Grurë, misër, perime",   disabled: true },
+  { value: "mixed",     Icon: Sprout,  label: "E përzier",  hint: "Kafshë dhe bujqësi",     disabled: true },
+];
 
 const REGIONS = [
   "Berat","Dibër","Durrës","Elbasan","Fier",
@@ -37,7 +38,7 @@ export default function SignupPage() {
   const [password, setPassword] = useState("");
 
   const [farmName, setFarmName] = useState("");
-  const [farmType, setFarmType] = useState("mixed");
+  const [farmType, setFarmType] = useState("bees");
   const [region, setRegion] = useState("");
 
   function validateStep1() {
@@ -217,28 +218,37 @@ export default function SignupPage() {
                   Lloji i fermës
                 </label>
                 <div className="grid grid-cols-2 gap-2">
-                  {FARM_TYPES.map(({ value, Icon, label, hint }) => (
+                  {FARM_TYPES.map(({ value, Icon, label, hint, disabled }) => (
                     <button
                       key={value}
                       type="button"
-                      onClick={() => setFarmType(value)}
-                      className={`flex cursor-pointer flex-col items-center rounded-2xl border-2 p-3.5 text-center transition-all duration-150 ${
-                        farmType === value
-                          ? "border-farm-500 bg-farm-50 shadow-sm shadow-farm-100"
-                          : "border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white"
+                      disabled={disabled}
+                      onClick={() => !disabled && setFarmType(value)}
+                      className={`relative flex flex-col items-center rounded-2xl border-2 p-3.5 text-center transition-all duration-150 ${
+                        disabled
+                          ? "cursor-not-allowed border-gray-100 bg-gray-50"
+                          : farmType === value
+                          ? "cursor-pointer border-farm-500 bg-farm-50 shadow-sm shadow-farm-100"
+                          : "cursor-pointer border-gray-100 bg-gray-50 hover:border-gray-200 hover:bg-white"
                       }`}
                     >
+                      {disabled && (
+                        <span className="absolute -right-1 -top-1 rounded-full bg-gray-400 px-1.5 py-0.5 text-[9px] font-bold text-white leading-tight">
+                          Shpejt
+                        </span>
+                      )}
                       <Icon
-                        className={`h-7 w-7 ${farmType === value ? "text-farm-600" : "text-gray-400"}`}
+                        className={`h-7 w-7 ${disabled ? "text-gray-300" : farmType === value ? "text-farm-600" : "text-gray-400"}`}
                         strokeWidth={1.5}
                       />
-                      <span className={`mt-1.5 text-xs font-bold ${farmType === value ? "text-farm-800" : "text-gray-700"}`}>
+                      <span className={`mt-1.5 text-xs font-bold ${disabled ? "text-gray-300" : farmType === value ? "text-farm-800" : "text-gray-700"}`}>
                         {label}
                       </span>
-                      <span className="mt-0.5 text-[10px] leading-tight text-gray-400">{hint}</span>
+                      <span className={`mt-0.5 text-[10px] leading-tight ${disabled ? "text-gray-300" : "text-gray-400"}`}>{hint}</span>
                     </button>
                   ))}
                 </div>
+                <p className="text-[11px] text-gray-400 text-center pt-1">Llojet e tjera vijnë së shpejti</p>
               </div>
 
               {/* Region */}

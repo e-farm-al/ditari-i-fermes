@@ -4,9 +4,20 @@ import { getMessages } from "next-intl/server";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ditari i Fermës",
-  description: "Menaxhoni fermën tuaj nga telefoni — edhe pa internet.",
+  title: {
+    default: "Ditari i Fermës — Aplikacioni për Bletarët Shqiptarë",
+    template: "%s | Ditari i Fermës",
+  },
+  description:
+    "Regjistro inspektimet e zgjojve, planifiko kujtueset dhe menaxho bletarinë tënde nga telefoni — edhe pa internet. Falas për bletarët shqiptarë.",
+  keywords: ["bletari", "ditari", "fermë", "zgjoje", "mjaltë", "shqipëri", "bletarë"],
   manifest: "/manifest.json",
+  openGraph: {
+    title: "Ditari i Fermës — Aplikacioni për Bletarët Shqiptarë",
+    description: "Menaxho bletarinë tënde nga telefoni. Regjistro inspektimet, merr kujtesa dhe mbaj shënim prodhimin e mjaltit.",
+    locale: "sq_AL",
+    type: "website",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",

@@ -29,7 +29,9 @@
       "Bash(grep -E \"\\\\.\\(tsx|ts\\)$\")",
       "Bash(mkdir -p \"C:\\\\GIT\\\\e-farm\\\\ditari-i-fermes\\\\app\\\\api\\\\farms\\\\[farmId]\\\\hives\\\\[hiveId]\\\\inspections\\\\[inspectionId]\")",
       "Bash(node -e \"require\\('dotenv'\\).config\\({path:'.env.local'}\\); const url = process.env.DATABASE_URL; if\\(!url\\) { console.log\\('DATABASE_URL: MISSING'\\); } else { const u = new URL\\(url\\); console.log\\('host:', u.host\\); console.log\\('protocol:', u.protocol\\); console.log\\('user:', u.username ? 'set' : 'missing'\\); console.log\\('password:', u.password ? 'set' : 'missing'\\); console.log\\('database:', u.pathname\\); }\")",
-      "Bash(powershell -Command \"\\(Get-Content CLAUDE.md\\) -replace '\\\\| ③ Bees \\\\| \\\\`hives\\\\`, \\\\`hive_inspections\\\\`, \\\\`hive_harvests\\\\` \\\\+ 🔜 \\\\`hive_feedings\\\\`, \\\\`hive_swarms\\\\` \\\\|', '| ③ Bees | \\\\`hives\\\\`, \\\\`hive_inspections\\\\`, \\\\`hive_harvests\\\\`, \\\\`hive_swarms\\\\` + 🔜 \\\\`hive_feedings\\\\` |' | Set-Content CLAUDE.md -Encoding utf8\")"
+      "Bash(powershell -Command \"\\(Get-Content CLAUDE.md\\) -replace '\\\\| ③ Bees \\\\| \\\\`hives\\\\`, \\\\`hive_inspections\\\\`, \\\\`hive_harvests\\\\` \\\\+ 🔜 \\\\`hive_feedings\\\\`, \\\\`hive_swarms\\\\` \\\\|', '| ③ Bees | \\\\`hives\\\\`, \\\\`hive_inspections\\\\`, \\\\`hive_harvests\\\\`, \\\\`hive_swarms\\\\` + 🔜 \\\\`hive_feedings\\\\` |' | Set-Content CLAUDE.md -Encoding utf8\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\GIT\\\\e-farm\\\\ditari-i-fermes\" -Force)",
+      "Bash(Select-Object Name, FullName)"
     ]
   }
 }

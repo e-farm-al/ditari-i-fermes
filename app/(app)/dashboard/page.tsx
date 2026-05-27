@@ -1,7 +1,7 @@
 import { getSession } from "@/lib/auth/session";
 import { redirect } from "next/navigation";
-import { db, farms, farmMembers } from "@/db";
-import { eq } from "drizzle-orm";
+import { db, farms, farmMembers, hives, reminders } from "@/db";
+import { eq, and, count } from "drizzle-orm";
 import Link from "next/link";
 import {
   BookOpen, Beef, Flower2, Bird, Wheat, Bell,
@@ -91,6 +91,22 @@ export default async function DashboardPage() {
   const firstName = session.name.split(" ")[0];
   const { text: greetText, Icon: GreetIcon } = greeting();
 
+  // Beekeeper stats
+  let hiveCount = 0;
+  let reminderCount = 0;
+  if (farmType === "bees" && farm) {
+    const [hc] = await db
+      .select({ n: count() })
+      .from(hives)
+      .where(and(eq(hives.farmId, farm.id), eq(hives.status, "active")));
+    const [rc] = await db
+      .select({ n: count() })
+      .from(reminders)
+      .where(and(eq(reminders.farmId, farm.id), eq(reminders.status, "pending")));
+    hiveCount = hc?.n ?? 0;
+    reminderCount = rc?.n ?? 0;
+  }
+
   return (
     <div className="flex min-h-dvh flex-col bg-gray-50">
 
@@ -142,6 +158,46 @@ export default async function DashboardPage() {
             </div>
           )}
         </section>
+
+        {/* ── Beekeeper stats strip ── */}
+        {farmType === "bees" && farm && (
+          <div className="mb-5 grid grid-cols-2 gap-3">
+            <Link
+              href="/hives"
+              className="flex items-center gap-3 rounded-2xl bg-amber-50 p-4 ring-1 ring-amber-100 hover:ring-amber-200"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100">
+                <Flower2 className="h-5 w-5 text-amber-600" strokeWidth={1.5} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-amber-700 leading-none">{hiveCount}</p>
+                <p className="mt-0.5 text-xs font-medium text-amber-600">Zgjoje aktive</p>
+              </div>
+            </Link>
+            <Link
+              href="/reminders"
+              className={`flex items-center gap-3 rounded-2xl p-4 ring-1 ${
+                reminderCount > 0
+                  ? "bg-sky-50 ring-sky-100 hover:ring-sky-200"
+                  : "bg-gray-50 ring-gray-100 hover:ring-gray-200"
+              }`}
+            >
+              <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
+                reminderCount > 0 ? "bg-sky-100" : "bg-gray-100"
+              }`}>
+                <Bell className={`h-5 w-5 ${reminderCount > 0 ? "text-sky-600" : "text-gray-400"}`} strokeWidth={1.5} />
+              </div>
+              <div>
+                <p className={`text-2xl font-bold leading-none ${reminderCount > 0 ? "text-sky-700" : "text-gray-400"}`}>
+                  {reminderCount}
+                </p>
+                <p className={`mt-0.5 text-xs font-medium ${reminderCount > 0 ? "text-sky-600" : "text-gray-400"}`}>
+                  Kujtuese
+                </p>
+              </div>
+            </Link>
+          </div>
+        )}
 
         {/* ── Navigation cards ── */}
         <div className={`grid gap-3 ${cards.length > 4 ? "grid-cols-2" : "grid-cols-2"}`}>

@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /dashboard
+Disallow: /hives
+Disallow: /reminders
+Disallow: /diary
+Disallow: /settings
+Disallow: /api/
+Allow: /
+Allow: /login
+Allow: /signup
+
+Sitemap: https://farmdiary.al/sitemap.xml
