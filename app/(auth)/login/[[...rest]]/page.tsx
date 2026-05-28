@@ -1,12 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Phone, User, Lock, Leaf, Eye, EyeOff, AlertCircle } from "lucide-react";
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirect") ?? "/dashboard";
+
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -31,17 +34,15 @@ export default function LoginPage() {
 
     if (!res.ok) { setError(data.error); return; }
 
-    router.push("/dashboard");
+    router.push(redirectTo);
     router.refresh();
   }
 
   return (
     <div className="flex min-h-dvh flex-col bg-gradient-to-b from-farm-50 to-white">
-      {/* Top organic shape */}
       <div className="h-2 w-full bg-farm-600" />
 
       <main className="flex flex-1 flex-col items-center justify-center px-5 py-10">
-        {/* Logo */}
         <div className="mb-8 flex flex-col items-center gap-3">
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-farm-600 shadow-lg shadow-farm-600/30">
             <Leaf className="h-8 w-8 text-white" strokeWidth={1.5} />
@@ -52,11 +53,9 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* Card */}
         <div className="w-full max-w-sm">
           <form onSubmit={handleSubmit} className="rounded-3xl bg-white p-6 shadow-xl shadow-gray-200/80 ring-1 ring-gray-100 space-y-4">
 
-            {/* Identifier */}
             <div className="space-y-1.5">
               <label htmlFor="identifier" className="block text-sm font-semibold text-gray-700">
                 Emri i përdoruesit ose telefoni
@@ -85,7 +84,6 @@ export default function LoginPage() {
               </p>
             </div>
 
-            {/* Password */}
             <div className="space-y-1.5">
               <label htmlFor="password" className="block text-sm font-semibold text-gray-700">
                 Fjalëkalimi
@@ -115,7 +113,6 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Error */}
             {error && (
               <div className="flex items-start gap-2 rounded-xl bg-red-50 px-3.5 py-3 text-sm text-red-700 ring-1 ring-red-100">
                 <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
@@ -123,7 +120,6 @@ export default function LoginPage() {
               </div>
             )}
 
-            {/* Submit */}
             <button
               type="submit"
               disabled={loading}
@@ -150,5 +146,13 @@ export default function LoginPage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <LoginForm />
+    </Suspense>
   );
 }

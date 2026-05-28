@@ -31,7 +31,17 @@
       "Bash(node -e \"require\\('dotenv'\\).config\\({path:'.env.local'}\\); const url = process.env.DATABASE_URL; if\\(!url\\) { console.log\\('DATABASE_URL: MISSING'\\); } else { const u = new URL\\(url\\); console.log\\('host:', u.host\\); console.log\\('protocol:', u.protocol\\); console.log\\('user:', u.username ? 'set' : 'missing'\\); console.log\\('password:', u.password ? 'set' : 'missing'\\); console.log\\('database:', u.pathname\\); }\")",
       "Bash(powershell -Command \"\\(Get-Content CLAUDE.md\\) -replace '\\\\| ③ Bees \\\\| \\\\`hives\\\\`, \\\\`hive_inspections\\\\`, \\\\`hive_harvests\\\\` \\\\+ 🔜 \\\\`hive_feedings\\\\`, \\\\`hive_swarms\\\\` \\\\|', '| ③ Bees | \\\\`hives\\\\`, \\\\`hive_inspections\\\\`, \\\\`hive_harvests\\\\`, \\\\`hive_swarms\\\\` + 🔜 \\\\`hive_feedings\\\\` |' | Set-Content CLAUDE.md -Encoding utf8\")",
       "Bash(Get-ChildItem -Path \"C:\\\\GIT\\\\e-farm\\\\ditari-i-fermes\" -Force)",
-      "Bash(Select-Object Name, FullName)"
+      "Bash(Select-Object Name, FullName)",
+      "Bash(npm install *)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/qrcode.react/package.json'\\).version\\); console.log\\(require\\('./node_modules/html5-qrcode/package.json'\\).version\\)\")",
+      "Bash(node -e \"const pkg = require\\('./node_modules/qrcode.react/package.json'\\); console.log\\('main:', pkg.main\\); console.log\\('types:', pkg.types\\); console.log\\('exports:', JSON.stringify\\(pkg.exports, null, 2\\)\\)\")",
+      "Bash(node -e \"const d = require\\('./node_modules/qrcode.react/lib/index.js'\\); console.log\\(Object.keys\\(d\\)\\)\")",
+      "Bash(not exist *)",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\GIT\\\\e-farm\\\\ditari-i-fermes\\\\app\\\\\\(app\\)\\\\scan\")",
+      "Bash(npx next *)",
+      "Bash(echo.)",
+      "Bash(node scripts/migrate-qr.mjs)",
+      "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowTitle -eq \"\" } | Select-Object Id, CPU, WorkingSet | Format-Table)"
     ]
   }
 }

@@ -6,7 +6,7 @@ import type { HiveInspection, HiveHarvest, HiveSwarm } from "@/db";
 import Link from "next/link";
 import {
   ArrowLeft, Flower2, Search, Wheat, Wind,
-  CheckCircle2, XCircle, AlertTriangle, ChevronRight, Pencil,
+  CheckCircle2, XCircle, AlertTriangle, ChevronRight, Pencil, QrCode,
 } from "lucide-react";
 
 // ── Label maps ────────────────────────────────────────────────────────────────
@@ -148,6 +148,13 @@ export default async function HiveDetailPage({
           <Flower2 className="h-4 w-4 flex-shrink-0 text-amber-500" strokeWidth={1.5} />
           <span className="truncate text-base font-bold text-farm-900">{hive.hiveCode}</span>
         </div>
+        <Link
+          href={`/hives/${hive.id}/qr`}
+          className="flex h-10 w-10 items-center justify-center rounded-xl text-gray-500 hover:bg-gray-100 active:scale-95"
+          aria-label="Shfaq kodin QR"
+        >
+          <QrCode className="h-[18px] w-[18px]" strokeWidth={1.5} />
+        </Link>
         <Link
           href={`/hives/${hive.id}/edit`}
           className="flex h-10 w-10 items-center justify-center rounded-xl text-gray-500 hover:bg-gray-100 active:scale-95"

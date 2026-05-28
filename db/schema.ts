@@ -784,6 +784,34 @@ export const notificationLog = pgTable("notification_log", {
 });
 
 // ---------------------------------------------------------------------------
+// LAYER ⑦ — QR CODES (stable short codes for physical labels)
+// ---------------------------------------------------------------------------
+
+export const qrCodes = pgTable(
+  "qr_codes",
+  {
+    // 6-char uppercase alphanumeric — permanent, never changes even if domain changes
+    code: varchar("code", { length: 10 }).primaryKey(),
+    // "hive" | "animal" | "flock" | "plot"
+    entityType: varchar("entity_type", { length: 20 }).notNull(),
+    entityId: uuid("entity_id").notNull(),
+    farmId: uuid("farm_id")
+      .notNull()
+      .references(() => farms.id, { onDelete: "cascade" }),
+    // Future: share_token for vet/inspector read-only access
+    // shareToken: varchar("share_token", { length: 32 }).unique(),
+    // shareExpiresAt: timestamp("share_expires_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => ({
+    entityIdx: index("qr_codes_entity_idx").on(t.entityType, t.entityId),
+    farmIdx: index("qr_codes_farm_idx").on(t.farmId),
+  })
+);
+
+// ---------------------------------------------------------------------------
 // RELATIONS
 // (Drizzle relations are used by the query builder — not DB constraints)
 // ---------------------------------------------------------------------------
@@ -1096,3 +1124,6 @@ export type NewPushSubscription = typeof pushSubscriptions.$inferInsert;
 
 export type NotificationLog = typeof notificationLog.$inferSelect;
 export type NewNotificationLog = typeof notificationLog.$inferInsert;
+
+export type QRCode = typeof qrCodes.$inferSelect;
+export type NewQRCode = typeof qrCodes.$inferInsert;
