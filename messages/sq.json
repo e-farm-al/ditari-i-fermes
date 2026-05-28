@@ -236,14 +236,14 @@
       "cropType": "Lloji i kulturës",
       "variety": "Varieteti",
       "plantingDate": "Data e mbjelljes",
-      "expectedHarvest": "Korrja e pritshme",
+      "expectedHarvest": "Vjelja e pritshme",
       "seedQuantity": "Sasia e farës (kg)",
       "status": {
         "planned": "Planifikuar",
         "planted": "Mbjellë",
         "growing": "Në rritje",
-        "harvested": "Korrur",
-        "failed": "Dështuar"
+        "harvested": "Vjelur",
+        "failed": "E parealizuar"
       }
     },
     "activity": {

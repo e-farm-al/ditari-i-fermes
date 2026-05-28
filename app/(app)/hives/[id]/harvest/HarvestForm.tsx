@@ -21,7 +21,7 @@ export default function HarvestForm({ farmId, hiveId, hiveCode }: Props) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!harvestDate) { setError("Data e korjes është e detyrueshme"); return; }
+    if (!harvestDate) { setError("Data e vjeljes është e detyrueshme"); return; }
     if (!honeyKg || Number(honeyKg) <= 0) { setError("Sasia e mjaltit është e detyrueshme"); return; }
     setError("");
     setLoading(true);
@@ -63,7 +63,7 @@ export default function HarvestForm({ farmId, hiveId, hiveCode }: Props) {
         </Link>
         <div className="flex items-center gap-2">
           <Wheat className="h-4 w-4 text-amber-500" strokeWidth={1.5} />
-          <span className="text-sm font-bold text-farm-900">Korje · {hiveCode}</span>
+          <span className="text-sm font-bold text-farm-900">Vjelja · {hiveCode}</span>
         </div>
       </header>
 
@@ -72,7 +72,7 @@ export default function HarvestForm({ farmId, hiveId, hiveCode }: Props) {
 
           <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-100">
             <h2 className="mb-4 text-xs font-bold uppercase tracking-wider text-gray-400">
-              Data e korjes
+              Data e vjeljes
             </h2>
             <input
               type="date"
@@ -151,7 +151,7 @@ export default function HarvestForm({ farmId, hiveId, hiveCode }: Props) {
             disabled={loading}
             className="flex h-14 items-center justify-center rounded-2xl bg-farm-600 text-sm font-bold text-white shadow-md shadow-farm-700/20 hover:bg-farm-700 active:scale-[0.98] disabled:opacity-60"
           >
-            {loading ? "Duke ruajtur..." : "Ruaj korjen"}
+            {loading ? "Duke ruajtur..." : "Ruaj vjeljen"}
           </button>
         </form>
       </main>

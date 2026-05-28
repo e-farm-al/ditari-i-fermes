@@ -420,7 +420,7 @@ function HarvestCard({ data }: { data: HiveHarvest }) {
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-2">
-            <p className="text-sm font-bold text-gray-700">Korje</p>
+            <p className="text-sm font-bold text-gray-700">Vjelje</p>
             <p className="text-xs text-gray-400">{formatDateShort(data.harvestDate)}</p>
           </div>
 
