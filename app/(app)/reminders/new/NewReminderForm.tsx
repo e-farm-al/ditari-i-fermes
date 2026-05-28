@@ -6,10 +6,10 @@ import Link from "next/link";
 import { ArrowLeft, Bell, AlertCircle } from "lucide-react";
 
 const TEMPLATES = [
-  { label: "Inspektim", title: "Inspektim i zgjoit" },
+  { label: "Inspektim", title: "Inspektim i kosheresë" },
   { label: "Ushqim",    title: "Ushqim i bletëve" },
   { label: "Trajtim",   title: "Trajtim kundër sëmundjeve" },
-  { label: "Korrje",    title: "Korrje mjalti" },
+  { label: "Vjelje",    title: "Vjelje mjalti" },
 ];
 
 const REPEAT_OPTIONS = [
@@ -113,7 +113,7 @@ export default function NewReminderForm({ farmId }: { farmId: string }) {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="p.sh. Inspektim i zgjoit Nr. 3"
+              placeholder="p.sh. Inspektim i kosheresë Nr. 3"
               required
               className={inputCls}
             />

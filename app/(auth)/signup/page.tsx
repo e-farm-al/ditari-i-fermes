@@ -13,7 +13,7 @@ import {
 const FARM_TYPES = [
   { value: "livestock", Icon: Beef,    label: "Blegtori",   hint: "Lopë, dele, dhi, kuaj", disabled: true },
   { value: "poultry",   Icon: Bird,    label: "Shpezari",   hint: "Pula, rosë, gjelinë",   disabled: true },
-  { value: "bees",      Icon: Flower2, label: "Bletari",    hint: "Zgjoje dhe mjaltë",      disabled: false },
+  { value: "bees",      Icon: Flower2, label: "Bletari",    hint: "Koshere dhe mjaltë",     disabled: false },
   { value: "crops",     Icon: Wheat,   label: "Bujqësi",    hint: "Grurë, misër, perime",   disabled: true },
   { value: "mixed",     Icon: Sprout,  label: "E përzier",  hint: "Kafshë dhe bujqësi",     disabled: true },
 ];

@@ -63,7 +63,7 @@ export default function EditHiveForm({
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!hiveCode.trim()) { setError("Kodi i zgojes është i detyrueshëm"); return; }
+    if (!hiveCode.trim()) { setError("Kodi i kosheresë është i detyrueshëm"); return; }
     setError("");
     setLoading(true);
 
@@ -122,7 +122,7 @@ export default function EditHiveForm({
             <div className="flex flex-col gap-4">
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-gray-700">
-                  Kodi i zgojes <span className="text-red-500">*</span>
+                  Kodi i kosheresë <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -134,7 +134,7 @@ export default function EditHiveForm({
 
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-gray-700">
-                  Lloji i zgojes
+                  Lloji i kosheresë
                 </label>
                 <select
                   value={hiveType}
@@ -241,7 +241,7 @@ export default function EditHiveForm({
           {/* Status — destructive section */}
           <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-100">
             <h2 className="mb-4 text-xs font-bold uppercase tracking-wider text-gray-400">
-              Gjendja e zgojes
+              Gjendja e kosheresë
             </h2>
             <div className="grid grid-cols-2 gap-2">
               {STATUSES.map((s) => (
@@ -264,7 +264,7 @@ export default function EditHiveForm({
               <div className="mt-3 flex items-start gap-2.5 rounded-xl bg-orange-50 px-4 py-3 text-sm text-orange-700">
                 <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0" strokeWidth={2} />
                 <span>
-                  Zgjo do të hiqet nga lista aktive. Të dhënat dhe historiku ruhen.
+                  Kosherja do të hiqet nga lista aktive. Të dhënat dhe historiku ruhen.
                 </span>
               </div>
             )}

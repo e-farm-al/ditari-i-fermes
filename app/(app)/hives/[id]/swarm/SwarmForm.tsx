@@ -120,7 +120,7 @@ export default function SwarmForm({ farmId, hiveId, hiveCode, allHives }: Props)
             {caught && allHives.length > 0 && (
               <div className="mt-4">
                 <label className="mb-1.5 block text-sm font-semibold text-gray-700">
-                  Vendosur në zgjo{" "}
+                  Vendosur në koshere{" "}
                   <span className="text-gray-400 font-normal text-xs">opsionale</span>
                 </label>
                 <select
@@ -128,7 +128,7 @@ export default function SwarmForm({ farmId, hiveId, hiveCode, allHives }: Props)
                   onChange={(e) => setNewHiveId(e.target.value)}
                   className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 focus:border-farm-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-farm-100"
                 >
-                  <option value="">— Zgjidhni zgjojen —</option>
+                  <option value="">— Zgjidhni kosherën —</option>
                   {allHives.map((h) => (
                     <option key={h.id} value={h.id}>{h.hiveCode}</option>
                   ))}

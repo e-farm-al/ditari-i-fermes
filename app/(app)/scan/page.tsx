@@ -101,7 +101,7 @@ export default function ScanPage() {
         >
           <ArrowLeft className="h-5 w-5" strokeWidth={2} />
         </Link>
-        <span className="text-base font-bold text-white">Skano Kodin QR</span>
+        <span className="text-base font-bold text-white">Skanoni Kodin QR</span>
       </header>
 
       <main className="flex flex-1 flex-col items-center justify-center gap-6 px-4 pb-32">
@@ -166,7 +166,7 @@ export default function ScanPage() {
               className="flex h-[56px] w-full items-center justify-center gap-2 rounded-2xl bg-farm-600 text-sm font-bold text-white shadow-lg shadow-farm-600/30 transition-all hover:bg-farm-700 active:scale-[0.98]"
             >
               <Camera className="h-5 w-5" strokeWidth={1.5} />
-              Hap kamerën
+              Hapni kamerën
             </button>
           )}
 
@@ -176,7 +176,7 @@ export default function ScanPage() {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
               </svg>
-              Duke hapur kamerën...
+              Duke aktivizuar kamerën...
             </div>
           )}
 
@@ -186,7 +186,7 @@ export default function ScanPage() {
               className="flex h-[56px] w-full items-center justify-center gap-2 rounded-2xl bg-gray-800 text-sm font-bold text-gray-300 transition-all hover:bg-gray-700 active:scale-[0.98]"
             >
               <CameraOff className="h-5 w-5" strokeWidth={1.5} />
-              Ndalo kamerën
+              Ndaloni kamerën
             </button>
           )}
         </div>

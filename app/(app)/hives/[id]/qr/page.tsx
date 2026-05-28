@@ -85,14 +85,14 @@ export default async function HiveQRPage({ params }: { params: { id: string } })
           <ArrowLeft className="h-5 w-5" strokeWidth={2} />
         </Link>
         <span className="text-base font-bold text-farm-900">
-          Etiketa QR — {hive.hiveCode}
+          Etiketa e kosheresë — {hive.hiveCode}
         </span>
       </header>
 
       <main className="flex flex-1 flex-col items-center px-4 py-8">
         {/* Print guidance — hidden when printing */}
         <p className="no-print mb-6 text-center text-sm text-gray-500">
-          Printoni këtë etiketë dhe vendoseni mbi zgjua.
+          Printoni këtë etiketë dhe vendoseni mbi koshere.
         </p>
 
         {/* ── A6 label card ── */}

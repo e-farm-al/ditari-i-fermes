@@ -73,9 +73,9 @@ function queenAge(dateStr: string): { text: string; old: boolean } {
 }
 
 const HIVE_STATUS_BANNER: Record<string, { label: string; style: string }> = {
-  inactive: { label: "Joaktive — kjo zgjo nuk është në përdorim aktiv.", style: "bg-gray-100 text-gray-600 ring-gray-200" },
-  lost:     { label: "E humbur — kjo koloni është humbur.",              style: "bg-red-50 text-red-700 ring-red-200" },
-  sold:     { label: "E shitur — kjo zgjo nuk është më në fermë.",       style: "bg-gray-100 text-gray-600 ring-gray-200" },
+  inactive: { label: "Joaktive — kjo koshere nuk është në përdorim aktiv.", style: "bg-gray-100 text-gray-600 ring-gray-200" },
+  lost:     { label: "E humbur — kjo koloni është humbur.",                style: "bg-red-50 text-red-700 ring-red-200" },
+  sold:     { label: "E shitur — kjo koshere nuk është më në fermë.",      style: "bg-gray-100 text-gray-600 ring-gray-200" },
 };
 
 // ── Timeline item types ───────────────────────────────────────────────────────
@@ -140,7 +140,7 @@ export default async function HiveDetailPage({
         <Link
           href="/hives"
           className="flex h-10 w-10 items-center justify-center rounded-xl text-gray-500 hover:bg-gray-100 active:scale-95"
-          aria-label="Kthehu te zgjojt"
+          aria-label="Kthehu te kosheret"
         >
           <ArrowLeft className="h-5 w-5" strokeWidth={2} />
         </Link>
@@ -158,7 +158,7 @@ export default async function HiveDetailPage({
         <Link
           href={`/hives/${hive.id}/edit`}
           className="flex h-10 w-10 items-center justify-center rounded-xl text-gray-500 hover:bg-gray-100 active:scale-95"
-          aria-label="Ndrysho zgjojen"
+          aria-label="Ndrysho kosherën"
         >
           <Pencil className="h-[18px] w-[18px]" strokeWidth={1.5} />
         </Link>
@@ -182,7 +182,7 @@ export default async function HiveDetailPage({
               <p className="text-sm font-bold text-red-700">Inspektim i vonuar</p>
               <p className="mt-0.5 text-xs text-red-500">
                 {daysSince === null
-                  ? "Kjo zgjo nuk ka inspektim të regjistruar akoma."
+                  ? "Kjo koshere nuk ka inspektim të regjistruar akoma."
                   : `Inspektimi i fundit ishte ${daysSince} ditë më parë — rekomandohet çdo 14 ditë.`}
               </p>
             </div>
@@ -272,8 +272,8 @@ export default async function HiveDetailPage({
                 <Search className="h-6 w-6 text-emerald-600" strokeWidth={1.5} />
               </div>
               <div className="flex-1">
-                <p className="text-sm font-bold text-gray-900">Bëj inspektim</p>
-                <p className="mt-0.5 text-xs text-gray-400">Shënoje gjendjen e kolonisë sot</p>
+                <p className="text-sm font-bold text-gray-900">Bëni inspektim</p>
+                <p className="mt-0.5 text-xs text-gray-400">Shënoni gjendjen e kolonisë sot</p>
               </div>
               <ChevronRight className="h-5 w-5 flex-shrink-0 text-gray-300" strokeWidth={2} />
             </Link>
@@ -286,8 +286,8 @@ export default async function HiveDetailPage({
                 <Wheat className="h-6 w-6 text-amber-600" strokeWidth={1.5} />
               </div>
               <div className="flex-1">
-                <p className="text-sm font-bold text-gray-900">Regjistro korje</p>
-                <p className="mt-0.5 text-xs text-gray-400">Sa kg mjaltë, dyllë dhe propolis</p>
+                <p className="text-sm font-bold text-gray-900">Regjistroni vjeljen</p>
+                <p className="mt-0.5 text-xs text-gray-400">Sasi mjaltë, dyllë e propolis</p>
               </div>
               <ChevronRight className="h-5 w-5 flex-shrink-0 text-gray-300" strokeWidth={2} />
             </Link>
@@ -300,8 +300,8 @@ export default async function HiveDetailPage({
                 <Wind className="h-6 w-6 text-sky-600" strokeWidth={1.5} />
               </div>
               <div className="flex-1">
-                <p className="text-sm font-bold text-gray-900">Shëno roj</p>
-                <p className="mt-0.5 text-xs text-gray-400">Doli roj — kapur apo i humbur?</p>
+                <p className="text-sm font-bold text-gray-900">Shënoni rojën</p>
+                <p className="mt-0.5 text-xs text-gray-400">Ka dalë rojë — e kapur apo e humbur?</p>
               </div>
               <ChevronRight className="h-5 w-5 flex-shrink-0 text-gray-300" strokeWidth={2} />
             </Link>

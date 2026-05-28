@@ -135,7 +135,7 @@ export default async function HivesPage({
           >
             <Leaf className="h-4 w-4 text-white" strokeWidth={1.5} />
           </Link>
-          <span className="text-sm font-bold text-farm-900">Zgjojt</span>
+          <span className="text-sm font-bold text-farm-900">Kosheret</span>
         </div>
         <div className="flex items-center gap-1">
           <Link
@@ -154,10 +154,10 @@ export default async function HivesPage({
         {/* ── Page title + Add button ── */}
         <div className="mb-4 flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-gray-900">Zgjojt e mia</h1>
+            <h1 className="text-xl font-bold text-gray-900">Kosheret e mia</h1>
             <p className="mt-0.5 text-sm text-gray-400">
               {farmHives.length}{" "}
-              {farmHives.length === 1 ? "zgjo aktive" : "zgjoje aktive"}
+              {farmHives.length === 1 ? "koshere aktive" : "koshere aktive"}
             </p>
           </div>
           <Link
@@ -204,17 +204,17 @@ export default async function HivesPage({
           <div className="mt-12 rounded-2xl border-2 border-dashed border-amber-200 bg-amber-50/50 p-8 text-center">
             <Flower2 className="mx-auto h-12 w-12 text-amber-400" strokeWidth={1.5} />
             <p className="mt-3 text-base font-bold text-amber-700">
-              Nuk keni zgjoje të regjistruara
+              Nuk keni koshere të regjistruara
             </p>
             <p className="mt-1 text-sm text-gray-500">
-              Shtoni zgjojen e parë për të filluar.
+              Shtoni kosherën e parë për të filluar.
             </p>
             <Link
               href="/hives/new"
               className="mt-5 inline-flex items-center gap-2 rounded-xl bg-farm-600 px-5 py-3 text-sm font-semibold text-white hover:bg-farm-700"
             >
               <Plus className="h-4 w-4" />
-              Shto zgjo
+              Shto koshere
             </Link>
           </div>
         ) : (
@@ -292,7 +292,7 @@ export default async function HivesPage({
             </h2>
             {archivedHives.length === 0 ? (
               <p className="py-6 text-center text-sm text-gray-400">
-                Nuk ka zgjoje të arkivuara.
+                Nuk ka koshere të arkivuara.
               </p>
             ) : (
               <div className="flex flex-col gap-3">

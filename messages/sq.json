@@ -170,8 +170,8 @@
       }
     },
     "harvest": {
-      "title": "Korrje",
-      "addHarvest": "Shto korrje",
+      "title": "Vjelje",
+      "addHarvest": "Shto vjelje",
       "honeyKg": "Mjaltë (kg)",
       "waxKg": "Dyllë (kg)",
       "propolisG": "Propolis (g)"
@@ -254,7 +254,7 @@
         "irrigation": "Ujitje",
         "fertilization": "Plehërim",
         "pesticide": "Pesticide",
-        "harvesting": "Korrje",
+        "harvesting": "Vjelje",
         "pruning": "Krasitje",
         "weeding": "Prashitje",
         "soil_prep": "Përgatitja e tokës",
@@ -262,8 +262,8 @@
       }
     },
     "harvest": {
-      "title": "Korrje",
-      "addHarvest": "Shto korrje",
+      "title": "Vjelje",
+      "addHarvest": "Shto vjelje",
       "quantityKg": "Sasia (kg)",
       "quality": {
         "excellent": "Shkëlqyer",

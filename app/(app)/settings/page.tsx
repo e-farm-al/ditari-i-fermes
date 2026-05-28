@@ -4,6 +4,16 @@ import { Settings, User, Bell, Shield, Info, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
 import SettingsLogout from "./SettingsLogout";
+import { db, farms, farmMembers } from "@/db";
+import { eq } from "drizzle-orm";
+
+const FARM_TYPE_LABEL: Record<string, string> = {
+  livestock: "Blegtori",
+  bees:      "Bletari",
+  poultry:   "Shpezari",
+  crops:     "Bujqësi",
+  mixed:     "Fermë e përzier",
+};
 
 export const metadata: Metadata = {
   title: "Cilësimet — Ditari i Fermës",
@@ -14,6 +24,21 @@ export default async function SettingsPage() {
   if (!session) redirect("/login");
 
   const firstName = session.name.split(" ")[0];
+
+  const [membership] = await db
+    .select({ farmId: farmMembers.farmId })
+    .from(farmMembers)
+    .where(eq(farmMembers.userId, session.userId))
+    .limit(1);
+
+  const farm = membership
+    ? (await db.select({ farmType: farms.farmType, name: farms.name })
+        .from(farms)
+        .where(eq(farms.id, membership.farmId))
+        .limit(1))[0]
+    : null;
+
+  const roleLabel = farm ? (FARM_TYPE_LABEL[farm.farmType ?? "mixed"] ?? "Fermer") : "Fermer";
 
   return (
     <div className="flex min-h-dvh flex-col bg-gray-50">
@@ -33,7 +58,7 @@ export default async function SettingsPage() {
             </div>
             <div>
               <p className="text-base font-bold text-gray-900">{session.name}</p>
-              <p className="text-sm text-gray-500">Bletari</p>
+              <p className="text-sm text-gray-500">{roleLabel}</p>
             </div>
           </div>
         </div>

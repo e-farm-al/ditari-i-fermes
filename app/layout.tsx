@@ -9,12 +9,12 @@ export const metadata: Metadata = {
     template: "%s | Ditari i Fermës",
   },
   description:
-    "Regjistro inspektimet e zgjojve, planifiko kujtesa dhe menaxho bletarinë tënde nga telefoni — edhe pa internet. Falas për bletarët shqiptarë.",
-  keywords: ["bletari", "ditari", "fermë", "zgjoje", "mjaltë", "shqipëri", "bletarë"],
+    "Regjistro inspektimet e koshereve, planifiko kujtesa dhe menaxho bletarinë tuaj nga telefoni — edhe pa internet. Falas për bletarët shqiptarë.",
+  keywords: ["bletari", "ditari", "fermë", "koshere", "mjaltë", "shqipëri", "bletarë"],
   manifest: "/manifest.json",
   openGraph: {
     title: "Ditari i Fermës — Aplikacioni për Bletarët Shqiptarë",
-    description: "Menaxho bletarinë tënde nga telefoni. Regjistro inspektimet, merr kujtesa dhe mbaj shënim prodhimin e mjaltit.",
+    description: "Menaxho bletarinë tuaj nga telefoni. Regjistro inspektimet, merr kujtesa dhe mbaj shënim prodhimin e mjaltit.",
     locale: "sq_AL",
     type: "website",
   },

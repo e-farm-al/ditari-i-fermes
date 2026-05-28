@@ -47,7 +47,7 @@ export default function NewHiveForm({ farmId }: { farmId: string }) {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!hiveCode.trim()) {
-      setError("Kodi i zgojes është i detyrueshëm");
+      setError("Kodi i kosheresë është i detyrueshëm");
       return;
     }
     setError("");
@@ -93,7 +93,7 @@ export default function NewHiveForm({ farmId }: { farmId: string }) {
         </Link>
         <div className="flex items-center gap-2">
           <Flower2 className="h-4 w-4 text-amber-500" strokeWidth={1.5} />
-          <span className="text-sm font-bold text-farm-900">Zgjo e re</span>
+          <span className="text-sm font-bold text-farm-900">Koshere e re</span>
         </div>
       </header>
 
@@ -109,7 +109,7 @@ export default function NewHiveForm({ farmId }: { farmId: string }) {
             <div className="flex flex-col gap-4">
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-gray-700">
-                  Kodi i zgojes <span className="text-red-500">*</span>
+                  Kodi i kosheresë <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -122,7 +122,7 @@ export default function NewHiveForm({ farmId }: { farmId: string }) {
 
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-gray-700">
-                  Lloji i zgojes
+                  Lloji i kosheresë
                 </label>
                 <select
                   value={hiveType}
@@ -222,7 +222,7 @@ export default function NewHiveForm({ farmId }: { farmId: string }) {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
-              placeholder="Shënime shtesë për këtë zgjo..."
+              placeholder="Shënime shtesë për këtë koshere..."
               className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm placeholder-gray-400 focus:border-farm-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-farm-100"
             />
           </section>
@@ -239,7 +239,7 @@ export default function NewHiveForm({ farmId }: { farmId: string }) {
             disabled={loading}
             className="flex h-14 items-center justify-center rounded-2xl bg-farm-600 text-sm font-bold text-white shadow-md shadow-farm-700/20 hover:bg-farm-700 active:scale-[0.98] disabled:opacity-60"
           >
-            {loading ? "Duke ruajtur..." : "Ruaj zgjojen"}
+            {loading ? "Duke ruajtur..." : "Ruaj kosherën"}
           </button>
         </form>
       </main>

@@ -7,7 +7,7 @@ import { Home, Flower2, BookOpen, Bell, Beef, Wheat, Bird, Sprout, QrCode } from
 type Tab = { href: string; Icon: React.ElementType; label: string };
 
 const SECTION_TAB: Record<string, Tab> = {
-  bees:      { href: "/hives",   Icon: Flower2, label: "Zgjojt" },
+  bees:      { href: "/hives",   Icon: Flower2, label: "Kosheret" },
   livestock: { href: "/animals", Icon: Beef,    label: "Kafshët" },
   poultry:   { href: "/poultry", Icon: Bird,    label: "Shpeza" },
   crops:     { href: "/crops",   Icon: Wheat,   label: "Kulturat" },
@@ -77,7 +77,7 @@ export default function BottomNav({ farmType }: { farmType: string }) {
           <span className={`mt-auto pt-8 text-[11px] font-semibold leading-none ${
             scanActive ? "text-farm-600" : "text-gray-400"
           }`}>
-            Skano
+            Skanim
           </span>
         </div>
 
